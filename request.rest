@@ -1,0 +1,57 @@
+//-----CADASTRAR USUÁRIO -------------/
+POST http://localhost:3003/user/create 
+Content-Type: application/json 
+
+{
+    "name": "testePasswordCriptografado",
+    "email": "testepassword@gmail.com",
+    "password": "12345678910"
+}
+
+
+//OBTER TODOS OS USUÁRIOS -------------/
+###
+GET  http://localhost:3003/user/getAll 
+
+
+
+//CRIAR POSTAGEM --------------------- /
+###
+POST http://localhost:3003/task/create 
+Content-Type: application/json 
+
+{
+    "id": "",
+    "photo": "dgg",
+    "description": "ghj",
+    "type": "normal",
+    "created_at": "14/04/23",
+    "authorId": "018ff005-1c84-40cd-87ed-477f6fe72c1c" 
+}
+
+
+//BUSCAR POSTAGEM POR ID ------------------------------ /
+###
+GET  http://localhost:3003/task/searchPost/27255ea5-cc54-43b4-96f4-2bb73b7534a7
+
+
+
+//BUSCAR TODAS AS POSTAGENS ------------------------------ /
+###
+GET  http://localhost:3003/task/getAllPosts
+
+
+//CRIAR AMIGOS --------------------- /
+###
+POST http://localhost:3003/friend/create 
+Content-Type: application/json 
+
+{
+    "id": "",
+    "id_user": "3d3023c9-81f6-4981-96f1-dfd5c3f755f7",
+    "id_friend": "46f4829b-c7fb-40bb-a9e9-61d3bfd1155a"
+}
+
+//DESFAZER AMIZADE --------------------- /
+###
+DELETE  http://localhost:3003/friend/unfriend/2127dda8-647f-4c29-8a1d-b39b6f097aa2
