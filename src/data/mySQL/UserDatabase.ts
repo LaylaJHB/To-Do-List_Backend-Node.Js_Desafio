@@ -15,7 +15,7 @@ export class UserDatabase extends BaseDatabase implements UserRepository {
           email: user.email,
           password: user.password
         })
-        .into("labook_users");
+        .into("to_do_list_users");
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message);
     }
@@ -25,7 +25,7 @@ export class UserDatabase extends BaseDatabase implements UserRepository {
     try {
       const allUsers = await UserDatabase.connection
         .select()
-        .from("labook_users");
+        .from("to_do_list_users");
 
       return allUsers;
     } catch (error: any) {

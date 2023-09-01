@@ -9,23 +9,24 @@ export class TaskController {
 
   public createTask = async (req: Request, res: Response):Promise<void> => {
     try {
-      const { id, photo, description, type,  created_at, authorId } = req.body;
+      const { id, title, description, deadline, status,  created_at, authorId } = req.body;
 
       const postId: any = Date.now().toString()
      
 
       const input: TaskInputDTO = {
         id:postId,
-        photo,
+        title,
         description,
-        type,
+        deadline,
+        status,
         created_at,
         authorId
       };
 
       await this.taskBusiness.createTask(input);
 
-      res.status(201).send({ message: "Postagem criada com sucesso!" });
+      res.status(201).send({ message: "Tarefa criada com sucesso!" });
     } catch (error: any) {
       res.status(400).send(error.message);
     }

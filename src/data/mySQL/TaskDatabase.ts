@@ -10,16 +10,17 @@ export class TaskDatabase extends BaseDatabase implements TaskRepository {
 
    public createTask = async (task: task):Promise<any> => {
       try {
-      await TaskDatabase.connection('labook_tasks')
+      await TaskDatabase.connection('to_do_list_tasks')
          .insert({
             id: task.id,
-            photo: task.photo,
+            title: task.title,
             description: task.description,
-            type: task.type,
+            deadline: task.deadline,
+            status: task.status,
             created_at: task.created_at,
             author_id: task.authorId
          })
-         .into('labook_tasks');
+         .into('to_do_list_tasks');
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message);
     }
@@ -30,7 +31,7 @@ export class TaskDatabase extends BaseDatabase implements TaskRepository {
       try {
          const returnPostId = await TaskDatabase.connection
          .where({id})
-         .into('labook_tasks')
+         .into('to_do_list_tasks')
 
          return returnPostId;
 
@@ -44,7 +45,7 @@ export class TaskDatabase extends BaseDatabase implements TaskRepository {
       try {
          const returnAllPosts = await TaskDatabase.connection
          .select('*')
-         .into('labook_tasks')
+         .into('to_do_list_tasks')
 
          return returnAllPosts;
 
