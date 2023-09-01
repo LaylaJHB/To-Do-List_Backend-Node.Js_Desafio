@@ -6,7 +6,6 @@
 
 Desenvolvimento de API CRUD
 
-
 ## 🧑‍🚀Tema
 
 Sistema de Gerenciamento de Tarefas
@@ -39,11 +38,11 @@ Sistema de Gerenciamento de Tarefas
 
 ## 🎯Objetivo do Projeto
 
-Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento em um ambiente realista. A API será um sistema de gerenciamento de tarefas. 
+Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento em um ambiente realista. A API será um sistema de gerenciamento de tarefas.
 
-- [ ] Cadastro de Tarefas: Cada tarefa deve conter um título, descrição e status (pendente, em andamento, concluída).
+- [X] Cadastro de Tarefas: Cada tarefa deve conter um título, descrição e status (pendente, em andamento, concluída).
   Utilize um banco de dados de sua escolha: SQL (por exemplo, MySQL) ou não-relacional (por exemplo, MongoDB).título, descrição e status (pendente, em andamento, concluída).
-- [ ] Listagem de Tarefas: Os usuários devem poder listar todas as tarefas cadastradas.
+- [X] Listagem de Tarefas: Os usuários devem poder listar todas as tarefas cadastradas.
 - [ ] Atualização de Tarefas: Os usuários devem poder atualizar detalhes e status de uma tarefa existente.
 - [ ] Exclusão de Tarefas: Os usuários devem poder excluir uma tarefa.
 
@@ -56,16 +55,13 @@ Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento e
 - Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
 - Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
 
-
 ## ☑️Critérios de Avaliação
 
 O critério predominante neste desafio é a qualidade do código e a organização do projeto. Será avaliado como você segue as melhores práticas, mantém um código limpo e estruturado, e organiza a lógica de acordo com o padrão MSC.
 
-
 ## ☑️Entrega
 
 Compartilhe o código-fonte do projeto através de um repositório no GitHub. Certifique-se de incluir um arquivo README que explique como configurar e executar o projeto localmente, instruções para instalação de dependências e detalhes sobre as rotas da API. O critério predominante neste desafio é a qualidade do código e a organização do projeto. Será avaliado como você segue as melhores práticas, mantém um código limpo e estruturado, e organiza a lógica de acordo com o padrão MSC.
-
 
 ---
 
@@ -75,12 +71,9 @@ Para esse projeto são modelados três entidades : ****.
 
 Cada um com as seguintes caracteristicas :
 
-
 ---
 
 ## ☑️Próximos passos
-
--
 
 ---
 

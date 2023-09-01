@@ -1,17 +1,19 @@
 export type task = {
     id: string,
-    photo: string,
+    title: string,
     description: string,
-    type: POST_TYPES,
+    deadline: string,
+    status: STATUS_TYPES,
     created_at: Date,
     authorId: string
  }
 
  export interface TaskInputDTO {
     id: string,
-    photo: string,
+    title: string,
     description: string,
-    type: POST_TYPES,
+    deadline: string,
+    status: STATUS_TYPES,
     created_at: Date,
     authorId: string
   }
@@ -21,16 +23,18 @@ export interface TaskPostInputDTO {
 
 }
 
-  export enum POST_TYPES {
-   NORMAL = "normal",
-   EVENT = "event"
+  export enum STATUS_TYPES {
+   PENDENTE = "pendente",
+   EM_ANDAMENTO = "em_andamento",
+   CONCLUÍDA = "concluída"
 }
 
   export type returnPostId = {
    id: string,
-   photo: string,
+   title: string,
    description: string,
-   type: POST_TYPES,
+   deadline: string,
+   status: STATUS_TYPES,
    created_at: Date,
    authorId: string
 }

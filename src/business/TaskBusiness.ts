@@ -9,36 +9,31 @@ export class TaskBusiness {
   constructor(private taskDatabase: TaskRepository){}
   public createTask = async (input: TaskInputDTO) => {
     try {
-      const { photo, description, type, created_at, authorId } = input;
+      const { title, description, deadline, status, created_at, authorId } = input;
       
 
       if (!description) {
         throw new Error(
-           'Erro: O campo "description" está vazio! Preencha a descrição da postagem'
+           'Erro: O campo "description" está vazio! Preencha a descrição da tarefa'
         );
       }
 
-      if (!photo) {
-        throw new Error(
-          'Erro: O campo "photo" está vazio. Adicione uma foto para criar uma postagem'
-        );
-      }
 
       if (!authorId) {
         throw new Error(
-          'Erro: O campo "authorId" está vazio!\nAdicione o ID do autor da postagem para criar uma postagem'
+          'Erro: O campo "authorId" está vazio!\nAdicione o ID do autor da tarefa para criar uma nova tarefa'
         );
       }
 
-      if (!type) {
+      if (!status) {
         throw new Error(
-          'O tipo está vazio. Preencha "type" com "normal" ou "event"'
+          'O status está vazio. Preencha "status" com "normal" ou "event"'
         );
       }
 
-      if (type != 'normal' && type != 'event') {
+      if (status != 'pendente' && status != 'em_andamento' && status != 'concluída') {
         throw new Error(
-          'Erro de tipo. Preencha "type" com "normal" ou "event""'
+          'Erro de status. Preencha o "status" da tarefa como "pendente", "em_andamento" ou concluída"'
         );
       }
 
@@ -48,9 +43,10 @@ export class TaskBusiness {
       
       const task: task = {
         id,
-        photo,
+        title,
         description,
-        type,
+        deadline,
+        status,
         created_at,
         authorId,
       }
