@@ -40,21 +40,21 @@ Sistema de Gerenciamento de Tarefas
 
 Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento em um ambiente realista. A API será um sistema de gerenciamento de tarefas.
 
-- [X] Cadastro de Tarefas: Cada tarefa deve conter um título, descrição e status (pendente, em andamento, concluída).
+- [✅] Cadastro de Tarefas: Cada tarefa deve conter um título, descrição e status (pendente, em andamento, concluída).
   Utilize um banco de dados de sua escolha: SQL (por exemplo, MySQL) ou não-relacional (por exemplo, MongoDB).título, descrição e status (pendente, em andamento, concluída).
-- [X] Listagem de Tarefas: Os usuários devem poder listar todas as tarefas cadastradas.
-- [ ] Atualização de Tarefas: Os usuários devem poder atualizar detalhes e status de uma tarefa existente.
-- [ ] Exclusão de Tarefas: Os usuários devem poder excluir uma tarefa.
+- [✅] Listagem de Tarefas: Os usuários devem poder listar todas as tarefas cadastradas.
+- [❌] Atualização de Tarefas: Os usuários devem poder atualizar detalhes e status de uma tarefa existente.
+- [❌] Exclusão de Tarefas: Os usuários devem poder excluir uma tarefa.
 
 ## ☑️Requisitos Técnicos
 
-- [X] Utilize Node.js e Express para criar a API.
-- [X] Organize o código utilizando o padrão MSC (Model-Service-Controller).
-- [ ] Integre autenticação JWT para proteger as rotas de atualização e exclusão de tarefas.
-- [X] Utilize um banco de dados de sua escolha: SQL (por exemplo, SQLite, PostgreSQL) ou não-relacional (por exemplo, Firebase Realtime Database).
+- [✅] Utilize Node.js e Express para criar a API.
+- [✅] Organize o código utilizando o padrão MSC (Model-Service-Controller).
+- [❌] Integre autenticação JWT para proteger as rotas de atualização e exclusão de tarefas.
+- [✅] Utilize um banco de dados de sua escolha: SQL (por exemplo, SQLite, PostgreSQL) ou não-relacional (por exemplo, Firebase Realtime Database).
 
-- Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
-- Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
+- [❌] Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
+- [❌] Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
 
 ## ☑️Critérios de Avaliação
 
@@ -70,13 +70,14 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 Para esse projeto são modelados duas entidades : usuário (user) e tarefa (task).
 
-Cada um com as seguintes características :
+Cada uma com os seguintes dados:
 
 - Usuário (user):
   - id
   - name
   - email
   - password
+    
 - Tarefa (task):
   - id
   - title
@@ -85,61 +86,58 @@ Cada um com as seguintes características :
   - status: *"pendente, "em_andamento e "concluída"*
   - created_at
   - authorId
+--- 
 
 ## ⭕Endpoints
 
+### 👤 Usuário
+---
+- **Criar usuário**
+  - Método: POST
+  - Path: `/create`
+  - Body:
+    - name
+    - email
+    - password
+
+- **Pegar todos os usuários**
+
+  - Método: GET
+  - Path: `/getAll`
+  - Body de resposta:
+    - id
+    - name
+    - email
+    - password
 
 
-##### Criar usuário
+### 🗒️ Tarefa
+  ---
+- **Criar tarefa**
+  - Método: POST
+  - Path: `/create`
+  - Body:
+    - id
+    - tilte
+    - description
+    - deadline
+    - status: *"pendente, "em_andamento e "concluída"*
+    - created_at
+    - authorId
 
 
-
-
-
-* Método: POST
-* Path: `/create`
-* Body:
-  - name
-  - email
-  - password
-
-##### Pegar todos os usuários
-
-* Método: GET
-* Path: `/getAll`
-* Body de resposta:
-  - id
-  - name
-  - email
-  - password
-
-
-##### Criar tarefa
-
-* Método: POST
-* Path: `/create`
-* Body:
-  * id
-  * tilte
-  * description
-  * deadline
-  * status: *"pendente, "em_andamento e "concluída"*
-  * created_at
-  * authorId
-
-
-##### Pegar todas as tarefas
-
-* Método: GET
-* Path: `/getAllPosts`
-* Body de resposta:
-  * id
-  * tilte
-  * description
-  * deadline
-  * status: *"pendente, "em_andamento e "concluída"*
-  * created_at
-  * authorId
+- **Pegar todas as tarefas**
+  - Método: GET
+  - Path: `/getAllPosts`
+  - Body de resposta:
+    - id
+    - tilte
+    - description
+    - deadline
+    - status: *"pendente, "em_andamento e "concluída"*
+    - created_at
+    - authorId
+---
 
 
 ☑️Próximos passos
