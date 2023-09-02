@@ -1,5 +1,5 @@
 import { generateId } from "../services/idGenerator";
-import { task, TaskInputDTO } from "../model/post";
+import { STATUS_TYPES, task, TaskInputDTO } from "../model/post";
 import { CustomError} from "../error/CustomError";
 import { TaskRepository } from "./TaskRepository";
 import { TaskDatabase } from "../data/mySQL/TaskDatabase";
@@ -55,7 +55,7 @@ export class TaskBusiness {
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message)
     }
-  }
+  };
 
 
   public searchPost = async (id: string) => {
@@ -70,9 +70,10 @@ export class TaskBusiness {
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message)
     } 
-  }
+  };
 
-  
+
+ 
   public getAllPosts = async (): Promise<task[]> => {
 
     try {
@@ -86,5 +87,15 @@ export class TaskBusiness {
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message)
     } 
-  }
-}
+  };
+
+
+  public deleteTaskById = async (id:string): Promise<void> => {
+    try {
+    
+      await this.taskDatabase.deleteTaskById(id)
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message)
+    }
+  };
+}  

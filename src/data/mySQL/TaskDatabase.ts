@@ -1,5 +1,5 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { task } from "../../model/post";
+import { STATUS_TYPES, task } from "../../model/post";
 import { CustomError } from "../../error/CustomError";
 import { TaskRepository } from "../../business/TaskRepository";
 
@@ -41,6 +41,7 @@ export class TaskDatabase extends BaseDatabase implements TaskRepository {
    };
 
 
+
    public getAllPosts = async(): Promise<task[]> => {
       try {
          const returnAllPosts = await TaskDatabase.connection
@@ -54,4 +55,22 @@ export class TaskDatabase extends BaseDatabase implements TaskRepository {
       }
    };
 
-}   
+   
+
+
+public deleteTaskById = async(id:string): Promise<void> => {
+
+
+   let input = {}
+      try {
+         
+         await TaskDatabase.connection('to_do_list_tasks')
+         .delete()
+         .where({id});
+         
+
+      }  catch (error:any) {
+         throw new CustomError(error.statusCode, error.message);
+      }
+   }; 
+} 

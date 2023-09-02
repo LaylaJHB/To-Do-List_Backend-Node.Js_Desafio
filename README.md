@@ -44,7 +44,7 @@ Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento e
   Utilize um banco de dados de sua escolha: SQL (por exemplo, MySQL) ou não-relacional (por exemplo, MongoDB).título, descrição e status (pendente, em andamento, concluída).
 - [✅] Listagem de Tarefas: Os usuários devem poder listar todas as tarefas cadastradas.
 - [❌] Atualização de Tarefas: Os usuários devem poder atualizar detalhes e status de uma tarefa existente.
-- [❌] Exclusão de Tarefas: Os usuários devem poder excluir uma tarefa.
+- [✅] Exclusão de Tarefas: Os usuários devem poder excluir uma tarefa.
 
 ## ☑️Requisitos Técnicos
 
@@ -52,8 +52,11 @@ Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento e
 - [✅] Organize o código utilizando o padrão MSC (Model-Service-Controller).
 - [❌] Integre autenticação JWT para proteger as rotas de atualização e exclusão de tarefas.
 - [✅] Utilize um banco de dados de sua escolha: SQL (por exemplo, SQLite, PostgreSQL) ou não-relacional (por exemplo, Firebase Realtime Database).
-
 - [❌] Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
+  - [✅] Busca por "id"
+  - [❌] Busca por "título"
+  - [❌] Busca por "status"
+  - [❌] Filtro
 - [❌] Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
 
 ## ☑️Critérios de Avaliação
@@ -73,12 +76,13 @@ Para esse projeto são modelados duas entidades : usuário (user) e tarefa (task
 Cada uma com os seguintes dados:
 
 - Usuário (user):
+
   - id
   - name
   - email
   - password
-    
 - Tarefa (task):
+
   - id
   - title
   - description
@@ -86,20 +90,23 @@ Cada uma com os seguintes dados:
   - status: *"pendente, "em_andamento e "concluída"*
   - created_at
   - authorId
---- 
+
+---
 
 ## ⭕Endpoints
 
 ### 👤 Usuário
+
 ---
+
 - **Criar usuário**
+
   - Método: POST
   - Path: `/create`
   - Body:
     - name
     - email
     - password
-
 - **Pegar todos os usuários**
 
   - Método: GET
@@ -110,10 +117,12 @@ Cada uma com os seguintes dados:
     - email
     - password
 
-
 ### 🗒️ Tarefa
-  ---
+
+---
+
 - **Criar tarefa**
+
   - Método: POST
   - Path: `/create`
   - Body:
@@ -124,9 +133,8 @@ Cada uma com os seguintes dados:
     - status: *"pendente, "em_andamento e "concluída"*
     - created_at
     - authorId
-
-
 - **Pegar todas as tarefas**
+
   - Método: GET
   - Path: `/getAllPosts`
   - Body de resposta:
@@ -137,8 +145,20 @@ Cada uma com os seguintes dados:
     - status: *"pendente, "em_andamento e "concluída"*
     - created_at
     - authorId
----
+- **Pegar todas as tarefas**
+- Método: GET
+- Path: `/getAllPosts`
+- Body de resposta:
 
+  - id
+  - tilte
+  - description
+  - deadline
+  - status: *"pendente, "em_andamento e "concluída"*
+  - created_at
+  - authorId
+
+---
 
 ☑️Próximos passos
 
@@ -149,6 +169,7 @@ Cada uma com os seguintes dados:
 - **Link do Deploy no Render:**
 
 ---
+
 ## 🔗Documentação
 
 - **Link da Documentação no Postman:**
@@ -182,4 +203,3 @@ Para Rodar o projeto, siga as seguintes etapas :
 ## 📝Sobre a Licença
 
 Este projeto esta sobe a licença [MIT](./LICENSE).
-git
