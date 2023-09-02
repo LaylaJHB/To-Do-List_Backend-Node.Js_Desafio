@@ -33,7 +33,7 @@ Content-Type: application/json
 
 //BUSCAR TAREFA POR ID ------------------------------ /
 ###
-GET  http://localhost:3003/task/searchPost/27255ea5-cc54-43b4-96f4-2bb73b7534a7
+GET  http://localhost:3003/task/searchPost/95ca708c-ae48-4dd0-820d-40cb20776b28
 
 
 
@@ -41,3 +41,6 @@ GET  http://localhost:3003/task/searchPost/27255ea5-cc54-43b4-96f4-2bb73b7534a7
 ###
 GET  http://localhost:3003/task/getAllPosts
 
+//DELETAR TASK --------------------- /
+###
+DELETE  http://localhost:3003/task/deleteTaskById/95ca708c-ae48-4dd0-820d-40cb20776b28

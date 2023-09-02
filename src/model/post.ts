@@ -38,3 +38,11 @@ export interface TaskPostInputDTO {
    created_at: Date,
    authorId: string
 }
+
+export type deleteTaskById = {
+   id: string
+}
+
+export interface deleteTaskInputDTO {
+   id: string
+  }

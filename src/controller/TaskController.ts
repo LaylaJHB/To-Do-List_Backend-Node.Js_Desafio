@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { TaskBusiness } from "../business/TaskBusiness";
-import { TaskInputDTO } from "../model/post";
+import { deleteTaskInputDTO, TaskInputDTO } from "../model/post";
 
 
 export class TaskController {
@@ -45,7 +45,8 @@ export class TaskController {
     } catch (error: any) {
       res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
     }
-  }
+  };
+  
 
   public getAllPosts = async (req: Request, res: Response) => {
     try {
@@ -58,5 +59,26 @@ export class TaskController {
     } catch (error: any) {
       res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
     }
-  }
+  };
+
+
+  public deleteTaskById = async (req: Request, res: Response) => {
+    try {
+
+      const { id } = req.body;
+
+      const input: deleteTaskInputDTO = {
+        id
+      };
+
+
+    
+      await this.taskBusiness.deleteTaskById(req.params.id)
+
+      res.status(201).send({ message: "Tarefa excluída com sucesso!" });
+    } catch (error: any) {
+      res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+    }
+  };
+
 }
