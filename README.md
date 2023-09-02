@@ -133,6 +133,7 @@ Cada uma com os seguintes dados:
     - status: *"pendente, "em_andamento e "concluída"*
     - created_at
     - authorId
+      
 - **Pegar todas as tarefas**
 
   - Método: GET
@@ -145,18 +146,26 @@ Cada uma com os seguintes dados:
     - status: *"pendente, "em_andamento e "concluída"*
     - created_at
     - authorId
-- **Pegar todas as tarefas**
-- Método: GET
-- Path: `/getAllPosts`
-- Body de resposta:
+      
+- **Deletar tarefa por "id"**
+  - Método: DELETE
+  - Path: `/deleteTaskById/id`
+  - Body de resposta:
+    - Mensagem: "Tarefa excluída com sucesso!"
+      
+- **Buscar tarefa por "id"**
 
-  - id
-  - tilte
-  - description
-  - deadline
-  - status: *"pendente, "em_andamento e "concluída"*
-  - created_at
-  - authorId
+  - Método: GET
+  - Path: `/searchPost/id`
+  - Body de resposta:
+    - id
+    - tilte
+    - description
+    - deadline
+    - status: *"pendente, "em_andamento e "concluída"*
+    - created_at
+    - authorId
+
 
 ---
 
