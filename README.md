@@ -32,7 +32,7 @@ Sistema de Gerenciamento de Tarefas
 
 ## 🧭Status do Projeto
 
-- ⏳ Iniciando
+- ⏳ Fazendo
 
 ---
 
@@ -48,10 +48,11 @@ Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento e
 
 ## ☑️Requisitos Técnicos
 
-- Utilize Node.js e Express para criar a API.
-- Organize o código utilizando o padrão MSC (Model-Service-Controller).
-- Integre autenticação JWT para proteger as rotas de atualização e exclusão de tarefas.
-- Utilize um banco de dados de sua escolha: SQL (por exemplo, SQLite, PostgreSQL) ou não-relacional (por exemplo, Firebase Realtime Database).
+- [X] Utilize Node.js e Express para criar a API.
+- [X] Organize o código utilizando o padrão MSC (Model-Service-Controller).
+- [ ] Integre autenticação JWT para proteger as rotas de atualização e exclusão de tarefas.
+- [X] Utilize um banco de dados de sua escolha: SQL (por exemplo, SQLite, PostgreSQL) ou não-relacional (por exemplo, Firebase Realtime Database).
+
 - Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
 - Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
 
@@ -65,15 +66,83 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 ---
 
-## 💡Concepção do Projeto
+## 💡Estrutura de Dados
 
-Para esse projeto são modelados três entidades : ****.
+Para esse projeto são modelados duas entidades : usuário (user) e tarefa (task).
 
-Cada um com as seguintes caracteristicas :
+Cada um com as seguintes características :
 
----
+- Usuário (user):
+  - id
+  - name
+  - email
+  - password
+- Tarefa (task):
+  - id
+  - title
+  - description
+  - deadline
+  - status: *"pendente, "em_andamento e "concluída"*
+  - created_at
+  - authorId
 
-## ☑️Próximos passos
+## ⭕Endpoints
+
+
+
+##### Criar usuário
+
+
+
+
+
+* Método: POST
+* Path: `/create`
+* Body:
+  - name
+  - email
+  - password
+
+##### Pegar todos os usuários
+
+* Método: GET
+* Path: `/getAll`
+* Body de resposta:
+  - id
+  - name
+  - email
+  - password
+
+
+##### Criar tarefa
+
+* Método: POST
+* Path: `/create`
+* Body:
+  * id
+  * tilte
+  * description
+  * deadline
+  * status: *"pendente, "em_andamento e "concluída"*
+  * created_at
+  * authorId
+
+
+##### Pegar todas as tarefas
+
+* Método: GET
+* Path: `/getAllPosts`
+* Body de resposta:
+  * id
+  * tilte
+  * description
+  * deadline
+  * status: *"pendente, "em_andamento e "concluída"*
+  * created_at
+  * authorId
+
+
+☑️Próximos passos
 
 ---
 
@@ -97,7 +166,7 @@ Para Rodar o projeto, siga as seguintes etapas :
   * `DB_PASS = `
   * `DB_NAME = `
   * `PORT = 3306`
-- Rode o comando `npm run migrations` para criar as tabelas do projeto em seu banco de Dados
+- Rode o comando `npm run migrations` para criar as tabelas do projeto em seu banco de Dados (ALTERAR)
 - Rode o comando `npm start` no terminal para iniciar o projeto
 
 ---
