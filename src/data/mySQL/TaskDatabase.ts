@@ -1,5 +1,5 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { STATUS_TYPES, task } from "../../model/post";
+import { STATUS_TYPES, UpdateTaskInput, UpdateTaskInputDTO, task } from "../../model/post";
 import { CustomError } from "../../error/CustomError";
 import { TaskRepository } from "../../business/TaskRepository";
 
@@ -73,4 +73,22 @@ public deleteTaskById = async(id:string): Promise<void> => {
          throw new CustomError(error.statusCode, error.message);
       }
    }; 
+
+   public updateTaskById = async(task: UpdateTaskInput): Promise<void> => {
+
+
+    
+         try {
+            
+            await TaskDatabase.connection
+            .update({
+               description: task.description })
+            .where({id: task.id})
+            .into('to_do_list_tasks');
+            
+   
+         }  catch (error:any) {
+            throw new CustomError(error.statusCode, error.message);
+         }
+      }; 
 } 

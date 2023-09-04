@@ -44,3 +44,15 @@ GET  http://localhost:3003/task/getAllPosts
 //DELETAR TASK --------------------- /
 ###
 DELETE  http://localhost:3003/task/deleteTaskById/95ca708c-ae48-4dd0-820d-40cb20776b28
+
+
+//ATUALIZAR TAREFA --------------------- /
+###
+POST http://localhost:3003/task/updateTaskById/
+Content-Type: application/json 
+
+{
+        "id": "d239a13d-9246-4351-b579-5d1c0aa81a36",
+        "description": "Edição para Trello"
+
+}

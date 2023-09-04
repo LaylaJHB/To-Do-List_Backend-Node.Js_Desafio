@@ -46,3 +46,33 @@ export type deleteTaskById = {
 export interface deleteTaskInputDTO {
    id: string
   }
+
+export type updateTaskById = {
+   id: string,
+   title: string,
+   description: string,
+   deadline: string,
+   status: STATUS_TYPES,
+   created_at: Date,
+   authorId: string
+}
+
+export interface UpdateTaskInputDTO {
+   id: string,
+   title: string,
+   description: string,
+   deadline: string,
+   status: STATUS_TYPES,
+   created_at: Date,
+   authorId: string
+}
+
+export interface UpdateTaskInput {
+   id: string,
+   title: string,
+   description: string,
+   deadline: string,
+   status: STATUS_TYPES,
+   created_at: Date,
+   authorId: string
+}
