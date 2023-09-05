@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { TaskBusiness } from "../business/TaskBusiness";
-import { deleteTaskInputDTO, TaskInputDTO } from "../model/post";
+import { deleteTaskInputDTO, STATUS_TYPES, TaskInputDTO, UpdateTaskInputDTO } from "../model/post";
 
 
 export class TaskController {
@@ -76,6 +76,33 @@ export class TaskController {
       await this.taskBusiness.deleteTaskById(req.params.id)
 
       res.status(201).send({ message: "Tarefa excluída com sucesso!" });
+    } catch (error: any) {
+      res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+    }
+  };
+
+  public updateTaskById = async (req: Request, res: Response) => {
+    try {
+
+
+
+      const input: UpdateTaskInputDTO = {
+        id: req.body as string,
+        title: req.body as string,
+        description: req.body as string,
+        deadline: req.body as string,
+        status: req.body as STATUS_TYPES,
+        created_at: req.body as Date,
+        authorId: req.body as string 
+      }
+   
+     
+
+     
+     
+      const tasks = await this.taskBusiness.updateTaskById(input);
+
+      res.status(201).send({ tasks });
     } catch (error: any) {
       res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
     }

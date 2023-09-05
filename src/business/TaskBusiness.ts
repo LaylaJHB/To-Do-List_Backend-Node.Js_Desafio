@@ -1,5 +1,5 @@
 import { generateId } from "../services/idGenerator";
-import { STATUS_TYPES, task, TaskInputDTO } from "../model/post";
+import { UpdateTaskInputDTO, task, TaskInputDTO, UpdateTaskInput } from "../model/post";
 import { CustomError} from "../error/CustomError";
 import { TaskRepository } from "./TaskRepository";
 import { TaskDatabase } from "../data/mySQL/TaskDatabase";
@@ -98,4 +98,31 @@ export class TaskBusiness {
       throw new CustomError(error.statusCode, error.message)
     }
   };
+
+  public updateTaskById = async (input: UpdateTaskInputDTO) => {
+
+    try {
+
+      const {id, title, description, deadline, status, created_at, authorId} = input;
+      const updateTaskInput: UpdateTaskInput = {
+        id,
+        title,
+        description,
+        deadline,
+        status, 
+        created_at, 
+        authorId
+      }
+      
+
+      const taskDatabase = new TaskDatabase()
+      const result = await taskDatabase.updateTaskById(updateTaskInput)
+
+      return result
+
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message)
+    } 
+  };
+
 }  
