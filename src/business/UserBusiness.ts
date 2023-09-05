@@ -1,9 +1,12 @@
 import { CustomError, InvalidEmail, InvalidPassword } from "../error/CustomError";
-import { UserInputDTO } from "../model/user";
+import { UserInputDTO, LoginInputDTO } from "../model/user";
 import { user } from "../model/user";
 import { generateId } from "../services/idGenerator";
 import { HashManager } from "../services/hashManager";
+import { Authenticator } from "../services/authenticator";
 import { UserRepository } from "./UserRepository";
+import { UserNotFound } from "../error/UserErrors";
+
 
 
 export class UserBusiness {
@@ -42,6 +45,9 @@ export class UserBusiness {
            }
 
            await this.userDatabase.insertUser(user)
+
+           const token = Authenticator.generateToken({id})
+           return token;
            
         } catch (error: any) {
            throw new CustomError(error.statusCode, error.message)
@@ -49,11 +55,11 @@ export class UserBusiness {
   }
 
   
-  public getUsers = async () => {
+  public getUsers = async (token: string) => {
 
      try {
         
-        
+      const {id} = Authenticator.getToken(token)
         return await this.userDatabase.getUsers();
         
      } catch (error: any) {
@@ -61,4 +67,52 @@ export class UserBusiness {
 
      }
   }
+
+  public login = async (input: LoginInputDTO) => {
+   try {
+     const {email, password} = input;
+     if (!email || !password) {
+       throw new CustomError(
+         422, 
+         "Senha e/ou email inválidos."
+         )
+     }
+
+     if (password.length < 6) {
+       throw new CustomError(
+         422,
+         "É necessário que a senha tenha pelo menos 6 caracteres."
+       )
+     }
+
+     if (!email.includes("@")) {
+       throw new InvalidEmail();
+     }
+     
+     const user = await this.userDatabase.findByEmail(email)
+
+     const hashManager = new HashManager()
+     const passwordIsCorrect = hashManager.compare(password, user.password);
+     
+    
+     
+
+     if (!user) {
+       throw new UserNotFound()
+     }
+
+     if(!passwordIsCorrect) {
+       throw new InvalidPassword()
+     }
+
+     const token = Authenticator.generateToken({id: user.id})
+     return token;
+     
+   } catch (error:any) {
+     throw new CustomError(400, error.message);
+   }
+ }
+
+
+
 }

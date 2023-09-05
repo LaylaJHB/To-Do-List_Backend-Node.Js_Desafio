@@ -8,4 +8,10 @@ export class HashManager {
 
         return encryptedPpassword
     };
+
+
+    public compare = (password: string, hash: string ) => {
+        return bcrypt.compareSync (password, hash)
+    }
 }
+

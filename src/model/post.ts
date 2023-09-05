@@ -64,7 +64,8 @@ export interface UpdateTaskInputDTO {
    deadline: string,
    status: STATUS_TYPES,
    created_at: Date,
-   authorId: string
+   authorId: string,
+   token: string
 }
 
 export interface UpdateTaskInput {
@@ -75,4 +76,8 @@ export interface UpdateTaskInput {
    status: STATUS_TYPES,
    created_at: Date,
    authorId: string
+}
+
+export interface AuthenticationData {
+   id: string
 }

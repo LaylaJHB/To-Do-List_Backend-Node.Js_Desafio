@@ -1,5 +1,6 @@
 import { generateId } from "../services/idGenerator";
-import { UpdateTaskInputDTO, task, TaskInputDTO, UpdateTaskInput } from "../model/post";
+import { Authenticator } from "../services/authenticator";
+import { UpdateTaskInputDTO, task, TaskInputDTO, UpdateTaskInput, STATUS_TYPES } from "../model/post";
 import { CustomError} from "../error/CustomError";
 import { TaskRepository } from "./TaskRepository";
 import { TaskDatabase } from "../data/mySQL/TaskDatabase";
@@ -7,9 +8,9 @@ import { TaskDatabase } from "../data/mySQL/TaskDatabase";
 export class TaskBusiness {
 
   constructor(private taskDatabase: TaskRepository){}
-  public createTask = async (input: TaskInputDTO) => {
+  public createTask = async (input: TaskInputDTO, token: string) => {
     try {
-      const { title, description, deadline, status, created_at, authorId } = input;
+      let { title, description, deadline, status } = input;
       
 
       if (!description) {
@@ -19,16 +20,9 @@ export class TaskBusiness {
       }
 
 
-      if (!authorId) {
-        throw new Error(
-          'Erro: O campo "authorId" está vazio!\nAdicione o ID do autor da tarefa para criar uma nova tarefa'
-        );
-      }
 
       if (!status) {
-        throw new Error(
-          'O status está vazio. Preencha "status" com "normal" ou "event"'
-        );
+        status = STATUS_TYPES.PENDENTE
       }
 
       if (status != 'pendente' && status != 'em_andamento' && status != 'concluída') {
@@ -40,14 +34,18 @@ export class TaskBusiness {
  
       const id: string = generateId();
 
-      
+      console.log(token)
+      const authorId = Authenticator.getToken(token).id
+    
+  
+
       const task: task = {
         id,
         title,
         description,
         deadline,
         status,
-        created_at,
+        created_at: new Date(),
         authorId,
       }
 
@@ -103,7 +101,7 @@ export class TaskBusiness {
 
     try {
 
-      const {id, title, description, deadline, status, created_at, authorId} = input;
+      const {id, title, description, deadline, status, created_at, authorId, token} = input;
       const updateTaskInput: UpdateTaskInput = {
         id,
         title,
@@ -113,7 +111,8 @@ export class TaskBusiness {
         created_at, 
         authorId
       }
-      
+      const {} = Authenticator.getToken(token)
+      console.log(token)
 
       const taskDatabase = new TaskDatabase()
       const result = await taskDatabase.updateTaskById(updateTaskInput)
