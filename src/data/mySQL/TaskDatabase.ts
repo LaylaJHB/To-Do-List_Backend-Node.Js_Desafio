@@ -83,7 +83,7 @@ public deleteTaskById = async(id:string): Promise<void> => {
             await TaskDatabase.connection
             .update({
                description: task.description })
-            .where({id: task.id})
+            .where({})
             .into('to_do_list_tasks');
             
    

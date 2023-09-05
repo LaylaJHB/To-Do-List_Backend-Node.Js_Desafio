@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { TaskBusiness } from "../business/TaskBusiness";
-import { deleteTaskInputDTO, TaskInputDTO, UpdateTaskInputDTO } from "../model/post";
+import { deleteTaskInputDTO, STATUS_TYPES, TaskInputDTO, UpdateTaskInputDTO } from "../model/post";
 
 
 export class TaskController {
@@ -87,13 +87,13 @@ export class TaskController {
 
 
       const input: UpdateTaskInputDTO = {
-        id: req.body,
-        title: req.body,
-        description: req.body,
-        deadline: req.body,
-        status: req.body,
-        created_at: req.body,
-        authorId: req.body  
+        id: req.body as string,
+        title: req.body as string,
+        description: req.body as string,
+        deadline: req.body as string,
+        status: req.body as STATUS_TYPES,
+        created_at: req.body as Date,
+        authorId: req.body as string 
       }
    
      
