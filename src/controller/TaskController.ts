@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { TaskBusiness } from "../business/TaskBusiness";
 import { deleteTaskInputDTO, STATUS_TYPES, TaskInputDTO, UpdateTaskInputDTO } from "../model/post";
-
+import { Authenticator } from "../services/authenticator";
 
 export class TaskController {
   constructor(private taskBusiness: TaskBusiness ) {}
@@ -11,9 +11,11 @@ export class TaskController {
     try {
       const { id, title, description, deadline, status,  created_at, authorId } = req.body;
 
+      const token = req.headers.authorization || ""
+
       const postId: any = Date.now().toString()
      
-
+      console.log(req.headers || "vazio")
       const input: TaskInputDTO = {
         id:postId,
         title,
@@ -24,7 +26,7 @@ export class TaskController {
         authorId
       };
 
-      await this.taskBusiness.createTask(input);
+      await this.taskBusiness.createTask(input, token as string);
 
       res.status(201).send({ message: "Tarefa criada com sucesso!" });
     } catch (error: any) {
@@ -86,6 +88,10 @@ export class TaskController {
 
 
 
+   
+
+      const token = req.headers.authorization as string;
+
       const input: UpdateTaskInputDTO = {
         id: req.body as string,
         title: req.body as string,
@@ -93,12 +99,12 @@ export class TaskController {
         deadline: req.body as string,
         status: req.body as STATUS_TYPES,
         created_at: req.body as Date,
-        authorId: req.body as string 
+        authorId: req.body as string, 
+        token: req.headers.authorization as string
       }
    
      
 
-     
      
       const tasks = await this.taskBusiness.updateTaskById(input);
 

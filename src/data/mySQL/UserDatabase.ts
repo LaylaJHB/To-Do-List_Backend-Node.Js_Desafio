@@ -32,4 +32,19 @@ export class UserDatabase extends BaseDatabase implements UserRepository {
       throw new CustomError(error.statusCode, error.message);
     }
   };
+
+  public findByEmail = async (email: string) => {
+    try {
+      const result = await UserDatabase.connection
+      .select()
+      .where({ email })
+      .into("to_do_list_users");
+      
+      return result[0]
+
+    } catch (error:any) {
+      throw new CustomError(400, error.message || error.sqlMessage);
+    }
+  };
+
 }

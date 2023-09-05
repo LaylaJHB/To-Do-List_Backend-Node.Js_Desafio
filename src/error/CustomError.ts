@@ -28,3 +28,9 @@ export class ErrorType extends CustomError{
         super(422, "Preencha o 'type' com os tipos de postagem 'normal' ou 'event'")
     }
 }
+
+export class Unaunthorized extends CustomError{
+    constructor() {
+    super(401, "Usuário não autorizado.")
+    }
+}

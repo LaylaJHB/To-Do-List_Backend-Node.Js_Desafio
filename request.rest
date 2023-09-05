@@ -3,15 +3,26 @@ POST http://localhost:3003/user/create
 Content-Type: application/json 
 
 {
-    "name": "Clementine Bauch",
-    "email": "Nathan@yesenia.net",
-    "password": "12345678910"
+    "name": "Fagundes Reis",
+    "email": "fagundes@yesenia.net",
+    "password": "1234567"
 }
 
 
 //PEGAR TODOS OS USUÁRIOS -------------/
 ###
 GET  http://localhost:3003/user/getAll 
+
+
+//LOGIN DO USUÁRIO -------------/
+###
+POST http://localhost:3003/user/login
+Content-Type: application/json 
+
+{
+    "email": "jonas@yesenia.net",
+    "password": "123456789"
+}
 
 
 
@@ -21,13 +32,10 @@ POST http://localhost:3003/task/create
 Content-Type: application/json 
 
 {
-    "id": "",
     "tilte": "Gerenciamento de tarefas",
     "description": "Atualizar o Trello com as novas demandas compartilhadas hoje",
     "deadline": "2023-09-06" ,
-    "status": "concluída",
-    "created_at": "2023-09-01",
-    "authorId": "4c3497f6-502a-42fa-8e5e-c2450f4c284d" 
+    "status": "pendente"
 }
 
 
@@ -52,7 +60,8 @@ POST http://localhost:3003/task/updateTaskById/
 Content-Type: application/json 
 
 {
+       
         "id": "d239a13d-9246-4351-b579-5d1c0aa81a36",
-        "description": "Edição para Trello"
+        "description": "Edição para Trello."
 
 }
