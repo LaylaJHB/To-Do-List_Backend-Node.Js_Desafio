@@ -107,6 +107,7 @@ Cada uma com os seguintes dados:
 
 ## ⭕Endpoints
 
+Todos os endpoints apresentados possuem exemplo de requisição e de resposta da requisição. Acesse a documentação para mais informações.
 
   - Cadastrar usuário
 
@@ -122,66 +123,36 @@ Cada uma com os seguintes dados:
 
   - Buscar tarefa específica pelo "id"
 
-Todos os endpoints apresentados nessa possuem exemplo de requisição e de resposta da requisição. Acesse a documentação para mais informações.
 
 ### 👤 Usuário
 
 ---
-Os endpoints a seguir são referentes a usuários:
+
+Os endpoints a seguir referentes a usuários devem ter seu "body" preenchidos na requisição e como resposta irão retornar "token" de autenticação que poderão ser usados em outras requisições. Acesse a documentação para ler detalhes sobre o preenchimento do _body_ e ler mais informações.
 
 - Cadastro de usuário: http://localhost:3003/user/create
 
 - Login de usuário: http://localhost:3003/user/login
-
-Esses endopoints devem ter seu "body" preenchidos na requisição e como resposta irão retornar "token" de autenticação que poderão ser usados em outras requisições.
 
 
 ### 🗒️ Tarefa
 
 ---
 
-- **Criar tarefa**
+Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisição e como resposta irão retornar "token" de autenticação que poderão ser usados em outras requisições. Acesse a documentação para ler detalhes sobre o preenchimento do _body_ e ler mais informações.
 
-  - Método: POST
-  - Path: `/create`
-  - Body:
-    - id
-    - tilte
-    - description
-    - deadline
-    - status: *"pendente, "em_andamento e "concluída"*
-    - created_at
-    - authorId
-- **Pegar todas as tarefas**
+- Criar tarefa: http://localhost:3003/task/create
 
-  - Método: GET
-  - Path: `/getAllPosts`
-  - Body de resposta:
-    - id
-    - tilte
-    - description
-    - deadline
-    - status: *"pendente, "em_andamento e "concluída"*
-    - created_at
-    - authorId
-- **Deletar tarefa por "id"**
+- Atualizar tarefa: http://localhost:3003/task/updateTaskById/
 
-  - Método: DELETE
-  - Path: `/deleteTaskById/id`
-  - Body de resposta:
-    - Mensagem: "Tarefa excluída com sucesso!"
-- **Buscar tarefa por "id"**
+- Deletar tarefa: http://localhost:3003/task/deleteTaskById/382beb5b-c15e-4a45-bf40-23d0828a91d3
 
-  - Método: GET
-  - Path: `/searchPost/id`
-  - Body de resposta:
-    - id
-    - tilte
-    - description
-    - deadline
-    - status: *"pendente, "em_andamento e "concluída"*
-    - created_at
-    - authorId
+- Buscar todas as tarefas: http://localhost:3003/task/getAllPosts
+
+- Buscar tarefa por "id": http://localhost:3003/task/searchPost/382beb5b-c15e-4a45-bf40-23d0828a91d3
+
+Esses endopoints 
+
 
 ---
 
