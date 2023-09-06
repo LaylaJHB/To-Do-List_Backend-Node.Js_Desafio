@@ -122,6 +122,8 @@ Todos os endpoints apresentados possuem exemplo de requisição e de resposta da
   - Cadastrar usuário
 
   - Realizar login do usuário
+    
+  - Buscar todos os usuários
 
   - Criar tarefa
 
@@ -143,6 +145,8 @@ Os endpoints a seguir referentes a usuários devem ter seu "body" preenchidos na
 - Cadastro de usuário: http://localhost:3003/user/create
 
 - Login de usuário: http://localhost:3003/user/login
+
+- Pegar todos os usuários cadastrados: http://localhost:3003/user/getAll 
 
 </br>
 
