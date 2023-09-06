@@ -101,22 +101,16 @@ Para esse projeto são modelados duas entidades : usuário (user) e tarefa (task
 
 Cada uma com os seguintes dados:
 
-- Usuário (user):
 
-  - id
-  - name
-  - email
-  - password
-- Tarefa (task):
-
-  - id
-  - title
-  - description
-  - deadline
-  - status: *"pendente, "em_andamento e "concluída"*
-  - created_at
-  - authorId
-
+| tarefa (task)  | usuário (user) |
+|----------------|----------------|
+|• id             | • id             |
+|• title          | • name           |
+|• description     | • email          |
+|• deadline        | • password       |
+|• status: *"pendente, "em_andamento e "concluída"*  | - |
+|• created_at      |-               |
+|• authorId        |-               |
 ---
 
 ## ⭕Endpoints
@@ -148,6 +142,7 @@ Os endpoints a seguir referentes a usuários devem ter seu "body" preenchidos na
 
 - Login de usuário: http://localhost:3003/user/login
 
+</br>
 
 ### 🗒️ Tarefa
 
