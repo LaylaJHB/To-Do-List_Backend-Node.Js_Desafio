@@ -27,10 +27,10 @@ export class UserController {
 
   public getUsers = async (req: Request, res: Response):Promise<void> => {
     try {
-       const token = req.headers.authorization as string;
+     
        const name = req.query.name
       
-       const users = await this.userBusiness.getUsers(token)
+       const users = await this.userBusiness.getUsers()
 
        res.status(201).send(users)
     } catch (error: any) {
@@ -57,24 +57,5 @@ export class UserController {
       res.status(400).send(error.message);
     }
   }
-/*
-  public signup = async (req: Request, res: Response) => {
-    try {
-      const { name, email, password } = req.body;
-  
-      const input: UserInputDTO = {
-        name,
-        email,
-        password,
-      };
-      const userBusiness = new UserBusiness()
-      const token = await userBusiness.signup(input);
-  
-      res.status(201).send({ message: "Usuário criado!", token: token });
 
-    } catch (error: any) {
-      res.status(400).send(error.message);
-      }
-  };   
-*/
 }
