@@ -123,7 +123,7 @@ Todos os endpoints apresentados possuem exemplo de requisição e de resposta da
 
   - Realizar login do usuário
     
-  - Buscar todos os usuários
+  - Pegar todos os usuários cadastrados
 
   - Criar tarefa
 
