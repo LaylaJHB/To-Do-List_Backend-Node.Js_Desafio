@@ -97,7 +97,9 @@ Esse projeto foi desenvolvido com as seguintes ferramentas e tecnologias:
 
 ## 💡Estrutura de Dados
 
-Para esse projeto são modelados duas entidades : usuário (user) e tarefa (task).
+**Para esse projeto são modelados duas entidades:** 
+- usuário (user)
+- tarefa (task).
 
 Cada uma com os seguintes dados:
 
