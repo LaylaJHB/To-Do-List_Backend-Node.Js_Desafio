@@ -6,6 +6,8 @@
 
 Desenvolvimento de API CRUD
 
+---
+
 ## 🧑‍🚀Tema
 
 Sistema de Gerenciamento de Tarefas
@@ -46,6 +48,8 @@ Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento e
 - [✅] Atualização de Tarefas: Os usuários devem poder atualizar detalhes e status de uma tarefa existente.
 - [✅] Exclusão de Tarefas: Os usuários devem poder excluir uma tarefa.
 
+---
+
 ## ☑️Requisitos Técnicos
 
 - [✅] Utilize Node.js e Express para criar a API.
@@ -55,9 +59,13 @@ Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento e
 - [✅] Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
 - [✅] Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
 
+--- 
+
 ## ☑️Critérios de Avaliação
 
 O critério predominante neste desafio é a qualidade do código e a organização do projeto. Será avaliado como você segue as melhores práticas, mantém um código limpo e estruturado, e organiza a lógica de acordo com o padrão MSC.
+
+---
 
 ## ☑️Entrega
 
@@ -65,6 +73,10 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 ---
 
+## 🛠Stack
+- Back-end
+
+--- 
 
 
 ## 🛠Tecnologias
@@ -80,6 +92,8 @@ Esse projeto foi desenvolvido com as seguintes ferramentas e tecnologias:
 * Knex
 * Cors
 * Express
+
+---
 
 ## 💡Estrutura de Dados
 
@@ -151,14 +165,11 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 
 - Buscar tarefa por "id": http://localhost:3003/task/searchPost/382beb5b-c15e-4a45-bf40-23d0828a91d3
 
-Esses endopoints 
-
-
 ---
 
 ## 🔗Deploy
 
-- **Link do Deploy no Render:**próximo passo
+- **Link do Deploy no Render:** próximo passo
 
 ---
 
@@ -191,7 +202,7 @@ Para Rodar o projeto, siga as seguintes etapas :
   * `DB_PASS = `
   * `DB_NAME = `
   * `PORT = 3306`
-* **Acesse o arquivo tables.sql**
+* **Acesse o arquivo tables.sql e siga os seguintes passos:**
   * Copie as queries de criação de tabelas
   * Cole em seu banco de dados
   * Execute o script para criar as tabelas de usuários e tarefas, respectivemente:
