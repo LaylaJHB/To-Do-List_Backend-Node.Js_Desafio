@@ -14,23 +14,6 @@ Sistema de Gerenciamento de Tarefas
 
 ---
 
-## 🔠Conteúdo
-
-<!--ts-->
-
-* [Sobre](#sobre)
-* [Autor](#👩🏾-autor)
-* [Status](#status)
-* [Objetivo do Projeto](#objetivo-do-projeto)
-* [Requisitos de Funcionalidade](#requisitos-de-funcionalidade)
-* [Concepção do Projeto](#concepcao-do-projeto)
-* [Link para Acessar](#link-para-acessar)
-* [Rodando o Projeto](#rodando-o-projeto)
-* [Sobre a Licença](#sobre-a-licença)
-
-<!--te-->
-
----
 
 ## 🧭Status do Projeto
 
