@@ -4,5 +4,5 @@ export interface TaskRepository {
     createTask(task: task):Promise<void> 
     searchPost(id: string): Promise<any> 
     deleteTaskById(id:string): Promise<void>
-    updateTaskById(task: UpdateTaskInput, input: UpdateTaskInputDTO): Promise<void>
+    updateTaskById(task: UpdateTaskInput, token: string): Promise<any>
 }
