@@ -107,27 +107,34 @@ Cada uma com os seguintes dados:
 
 ## ⭕Endpoints
 
+
+  - Cadastrar usuário
+
+  - Realizar login do usuário
+
+  - Criar tarefa
+
+  - Atualizar tarefa
+
+  - Deletar tarefa
+
+  - Buscar todas as tarefas cadastradas
+
+  - Buscar tarefa específica pelo "id"
+
+Todos os endpoints apresentados nessa possuem exemplo de requisição e de resposta da requisição. Acesse a documentação para mais informações.
+
 ### 👤 Usuário
 
 ---
+Os endpoints a seguir são referentes a usuários:
 
-- **Criar usuário**
+- Cadastro de usuário: http://localhost:3003/user/create
 
-  - Método: POST
-  - Path: `/create`
-  - Body:
-    - name
-    - email
-    - password
-- **Pegar todos os usuários**
+- Login de usuário: http://localhost:3003/user/login
 
-  - Método: GET
-  - Path: `/getAll`
-  - Body de resposta:
-    - id
-    - name
-    - email
-    - password
+Esses endopoints devem ter seu "body" preenchidos na requisição e como resposta irão retornar "token" de autenticação que poderão ser usados em outras requisições.
+
 
 ### 🗒️ Tarefa
 
@@ -175,10 +182,6 @@ Cada uma com os seguintes dados:
     - status: *"pendente, "em_andamento e "concluída"*
     - created_at
     - authorId
-
----
-
-☑️Próximos passos
 
 ---
 
