@@ -43,21 +43,17 @@ Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento e
 - [✅] Cadastro de Tarefas: Cada tarefa deve conter um título, descrição e status (pendente, em andamento, concluída).
   Utilize um banco de dados de sua escolha: SQL (por exemplo, MySQL) ou não-relacional (por exemplo, MongoDB).título, descrição e status (pendente, em andamento, concluída).
 - [✅] Listagem de Tarefas: Os usuários devem poder listar todas as tarefas cadastradas.
-- [❌] Atualização de Tarefas: Os usuários devem poder atualizar detalhes e status de uma tarefa existente.
+- [✅] Atualização de Tarefas: Os usuários devem poder atualizar detalhes e status de uma tarefa existente.
 - [✅] Exclusão de Tarefas: Os usuários devem poder excluir uma tarefa.
 
 ## ☑️Requisitos Técnicos
 
 - [✅] Utilize Node.js e Express para criar a API.
 - [✅] Organize o código utilizando o padrão MSC (Model-Service-Controller).
-- [❌] Integre autenticação JWT para proteger as rotas de atualização e exclusão de tarefas.
+- [✅] Integre autenticação JWT para proteger as rotas de atualização e exclusão de tarefas.
 - [✅] Utilize um banco de dados de sua escolha: SQL (por exemplo, SQLite, PostgreSQL) ou não-relacional (por exemplo, Firebase Realtime Database).
-- [❌] Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
-  - [✅] Busca por "id"
-  - [❌] Busca por "título"
-  - [❌] Busca por "status"
-  - [❌] Filtro
-- [❌] Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
+- [✅] Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
+- [✅] Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
 
 ## ☑️Critérios de Avaliação
 
@@ -221,26 +217,18 @@ Para Rodar o projeto, siga as seguintes etapas :
   * `DB_PASS = `
   * `DB_NAME = `
   * `PORT = 3306`
+* **Acesse o arquivo tables.sql**
+  * Copie as queries de criação de tabelas
+  * Cole em seu banco de dados
+  * Execute o script para criar as tabelas de usuários e tarefas, respectivemente:
+    * to_do_list_users
+    * to_do_list_tasks      
+    
 * **Acesse novamente o terminal**
   * **Inicie o projeto:** rode o comando
     ```
     npm start
     ```
-
-Para Rodar o projeto, siga as seguintes etapas :
-
-- Clone esse repositório
-- Rode o comando `npm install` para instalar as dependências do projeto
-- Adicione os dados de conexão do seu Banco de Dados em um arquivo `.env` com as seguintes variáveis:
-
-  * `DB_HOST = `
-  * `DB_USER = `
-  * `DB_PASS = `
-  * `DB_NAME = `
-  * `PORT = 3306`
-- Acesse o arquivo table.sql, copie as queries de criação de tabelas, cole em seu Banco de Dados e execute o script.
-- Rode o comando `npm start` no terminal para iniciar o projeto
-
 ---
 
 ## 🧑‍🚀Autor
