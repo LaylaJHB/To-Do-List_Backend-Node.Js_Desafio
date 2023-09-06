@@ -69,6 +69,22 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 ---
 
+
+
+## 🛠Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes ferramentas e tecnologias:
+
+* Node.js
+* Typescript
+* SQL
+* MySQL
+* API
+* Postman
+* Knex
+* Cors
+* Express
+
 ## 💡Estrutura de Dados
 
 Para esse projeto são modelados duas entidades : usuário (user) e tarefa (task).
@@ -133,7 +149,6 @@ Cada uma com os seguintes dados:
     - status: *"pendente, "em_andamento e "concluída"*
     - created_at
     - authorId
-      
 - **Pegar todas as tarefas**
 
   - Método: GET
@@ -146,13 +161,12 @@ Cada uma com os seguintes dados:
     - status: *"pendente, "em_andamento e "concluída"*
     - created_at
     - authorId
-      
 - **Deletar tarefa por "id"**
+
   - Método: DELETE
   - Path: `/deleteTaskById/id`
   - Body de resposta:
     - Mensagem: "Tarefa excluída com sucesso!"
-      
 - **Buscar tarefa por "id"**
 
   - Método: GET
@@ -166,7 +180,6 @@ Cada uma com os seguintes dados:
     - created_at
     - authorId
 
-
 ---
 
 ☑️Próximos passos
@@ -175,17 +188,44 @@ Cada uma com os seguintes dados:
 
 ## 🔗Deploy
 
-- **Link do Deploy no Render:**
+- **Link do Deploy no Render:**próximo passo
 
 ---
 
 ## 🔗Documentação
 
-- **Link da Documentação no Postman:**
+- **Link da Documentação no Postman:** https://documenter.getpostman.com/view/22349688/2s9YBxZbXr
 
 ---
 
 ## 🛰Rodando o Projeto
+
+Para Rodar o projeto, siga as seguintes etapas :
+
+* **Acesse o terminal:** GitBash, Windows PowerShell ou outro
+  * **Clone esse repositório:**
+    ```
+    git clone https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio.git
+    ```
+  * **Instale as dependências do projeto:** rode o comando
+    ```
+    npm install
+    ```
+* **Crie um arquivo com nome .env no diretório raiz do projeto:**
+  ```
+  touch .env
+  ```
+* **Acesse o arquivo .env, adicione as variáveis de ambiente e preencha as credenciais de acesso do seu Banco de Dados:**
+  * `DB_HOST = `
+  * `DB_USER = `
+  * `DB_PASS = `
+  * `DB_NAME = `
+  * `PORT = 3306`
+* **Acesse novamente o terminal**
+  * **Inicie o projeto:** rode o comando
+    ```
+    npm start
+    ```
 
 Para Rodar o projeto, siga as seguintes etapas :
 
@@ -198,12 +238,12 @@ Para Rodar o projeto, siga as seguintes etapas :
   * `DB_PASS = `
   * `DB_NAME = `
   * `PORT = 3306`
-- Rode o comando `npm run migrations` para criar as tabelas do projeto em seu banco de Dados (ALTERAR)
+- Acesse o arquivo table.sql, copie as queries de criação de tabelas, cole em seu Banco de Dados e execute o script.
 - Rode o comando `npm start` no terminal para iniciar o projeto
 
 ---
 
-## 👩🏾 Autor
+## 🧑‍🚀Autor
 
 - Layla Janaína Hissa Borges
 

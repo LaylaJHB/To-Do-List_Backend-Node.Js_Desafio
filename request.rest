@@ -41,9 +41,7 @@ Content-Type: application/json
 
 //BUSCAR TAREFA POR ID ------------------------------ /
 ###
-GET  http://localhost:3003/task/searchPost/95ca708c-ae48-4dd0-820d-40cb20776b28
-
-
+GET  http://localhost:3003/task/searchPost/e652bff9-1bd6-4655-9c76-e94a4a97fce1
 
 //BUSCAR TODAS AS TAREFAS ------------------------------ /
 ###
@@ -51,7 +49,7 @@ GET  http://localhost:3003/task/getAllPosts
 
 //DELETAR TASK --------------------- /
 ###
-DELETE  http://localhost:3003/task/deleteTaskById/95ca708c-ae48-4dd0-820d-40cb20776b28
+DELETE  http://localhost:3003/task/deleteTaskById/d239a13d-9246-4351-b579-5d1c0aa81a36
 
 
 //ATUALIZAR TAREFA --------------------- /
@@ -61,7 +59,7 @@ Content-Type: application/json
 
 {
        
-        "id": "d239a13d-9246-4351-b579-5d1c0aa81a36",
-        "description": "Edição para Trello."
+        "id": "e652bff9-1bd6-4655-9c76-e94a4a97fce1",
+        "description": "Teste."
 
 }

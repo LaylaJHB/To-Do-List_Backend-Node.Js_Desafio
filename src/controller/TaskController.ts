@@ -86,11 +86,8 @@ export class TaskController {
   public updateTaskById = async (req: Request, res: Response) => {
     try {
 
-
-
-   
-
-      const token = req.headers.authorization as string;
+      const token = req.headers.authorization;
+      const id: string = req.params.id
 
       const input: UpdateTaskInputDTO = {
         id: req.body as string,
@@ -104,9 +101,7 @@ export class TaskController {
       }
    
      
-
-     
-      const tasks = await this.taskBusiness.updateTaskById(input);
+      const tasks = await this.taskBusiness.updateTaskById(input, token as string);
 
       res.status(201).send({ tasks });
     } catch (error: any) {
