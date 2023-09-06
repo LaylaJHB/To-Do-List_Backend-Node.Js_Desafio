@@ -34,9 +34,8 @@ export class TaskBusiness {
  
       const id: string = generateId();
 
-      console.log(token)
-      const authorId = Authenticator.getToken(token).id
     
+      const authorId = Authenticator.getToken(token).id
   
 
       const task: task = {
@@ -97,7 +96,7 @@ export class TaskBusiness {
     }
   };
 
-  public updateTaskById = async (input: UpdateTaskInputDTO, token: string) => {
+  public updateTaskById = async (input: UpdateTaskInputDTO) => {
 
     try {
 
@@ -111,9 +110,7 @@ export class TaskBusiness {
         created_at, 
         authorId
       }
-
-     
-      const {} = Authenticator.getToken(token).id
+      const {} = Authenticator.getToken(token)
       console.log(token)
 
       const taskDatabase = new TaskDatabase()

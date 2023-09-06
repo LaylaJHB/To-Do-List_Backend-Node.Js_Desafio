@@ -55,11 +55,11 @@ export class UserBusiness {
   }
 
   
-  public getUsers = async (token: string) => {
+  public getUsers = async () => {
 
      try {
         
-      const {id} = Authenticator.getToken(token)
+      
         return await this.userDatabase.getUsers();
         
      } catch (error: any) {
