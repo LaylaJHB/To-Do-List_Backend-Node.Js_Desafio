@@ -79,16 +79,32 @@ public deleteTaskById = async(id:string): Promise<void> => {
 
     
          try {
-            
-            await TaskDatabase.connection
-            .update({
-               description: task.description })
-            .where({})
-            .into('to_do_list_tasks');
-            
+
+
+/*          await TaskDatabase.connection. raw (`
+
+            update to_do_list_tasks
+            set description = "${task.description}"
+
+            where id = "${task.id}"
+
+            `
+            )
+*/     
+
+/*           await TaskDatabase.connection ('to_do_list_tasks')
+            .update({ description: task.description })
+            .where("id", "=", task.id);
+*/            
+
+            await TaskDatabase.connection ('to_do_list_tasks')
+            .update(task)
+            .where({id: task.id});
    
          }  catch (error:any) {
             throw new CustomError(error.statusCode, error.message);
          }
       }; 
+
+   
 } 

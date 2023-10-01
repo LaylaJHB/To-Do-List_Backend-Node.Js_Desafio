@@ -87,19 +87,16 @@ export class TaskController {
     try {
 
 
-
-   
-
       const token = req.headers.authorization || "";
 
       const input: UpdateTaskInputDTO = {
-        id: req.body as string,
-        title: req.body as string,
-        description: req.body as string,
-        deadline: req.body as string,
-        status: req.body as STATUS_TYPES,
-        created_at: req.body as Date,
-        authorId: req.body as string, 
+        id: req.body.id as string,
+        title: req.body.title as string,
+        description: req.body.description as string,
+        deadline: req.body.deadline as string,
+        status: req.body.status as STATUS_TYPES,
+        created_at: req.body.created_at as Date,
+        authorId: req.body.authorId as string, 
         token: req.headers.authorization as string
       }
    

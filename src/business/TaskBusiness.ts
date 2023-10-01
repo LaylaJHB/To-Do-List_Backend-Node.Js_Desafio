@@ -111,7 +111,7 @@ export class TaskBusiness {
         authorId
       }
       const {} = Authenticator.getToken(token)
-      console.log(token)
+      console.log(input)
 
       const taskDatabase = new TaskDatabase()
       const result = await taskDatabase.updateTaskById(updateTaskInput)
