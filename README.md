@@ -14,7 +14,6 @@ Sistema de Gerenciamento de Tarefas
 
 ---
 
-
 ## 🧭Status do Projeto
 
 - ⏳ Fazendo
@@ -42,7 +41,7 @@ Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento e
 - [✅] Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
 - [✅] Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
 
---- 
+---
 
 ## ☑️Critérios de Avaliação
 
@@ -57,10 +56,20 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 ---
 
 ## 🛠Stack
+
 - Back-end
 
---- 
+---
 
+## 🛠Arquitetura
+
+Arquitetura de software em 3 camadas (3-tiers):
+
+* Controller: camada de interface, comunicação.
+* Bussiness: camada lógica, principal
+* Database: armazenamento e gerenciamento dos dados/informações
+
+---
 
 ## 🛠Tecnologias
 
@@ -80,44 +89,38 @@ Esse projeto foi desenvolvido com as seguintes ferramentas e tecnologias:
 
 ## 💡Estrutura de Dados
 
-**Para esse projeto são modelados duas entidades:** 
+**Para esse projeto são modelados duas entidades:**
+
 - usuário (user)
 - tarefa (task).
 
 Cada uma com os seguintes dados:
 
 
-| tarefa (task)  | usuário (user) |
-|----------------|----------------|
-|• id             | • id             |
-|• title          | • name           |
-|• description     | • email          |
-|• deadline        | • password       |
-|• status: *"pendente, "em_andamento e "concluída"*  | - |
-|• created_at      |-               |
-|• authorId        |-               |
+| tarefa (task)                                       | usuário (user) |
+| ----------------------------------------------------- | ----------------- |
+| • id                                               | • id           |
+| • title                                            | • name         |
+| • description                                      | • email        |
+| • deadline                                         | • password     |
+| • status:*"pendente, "em_andamento e "concluída"* | -               |
+| • created_at                                       | -               |
+| • authorId                                         | -               |
+
 ---
 
 ## ⭕Endpoints
 
 Todos os endpoints apresentados possuem exemplo de requisição e de resposta da requisição. Acesse a documentação para mais informações.
 
-  - Cadastrar usuário
-
-  - Realizar login do usuário
-    
-  - Pegar todos os usuários cadastrados
-
-  - Criar tarefa
-
-  - Atualizar tarefa
-
-  - Deletar tarefa
-
-  - Buscar todas as tarefas cadastradas
-
-  - Buscar tarefa específica pelo "id"
-
+- Cadastrar usuário
+- Realizar login do usuário
+- Pegar todos os usuários cadastrados
+- Criar tarefa
+- Atualizar tarefa
+- Deletar tarefa
+- Buscar todas as tarefas cadastradas
+- Buscar tarefa específica pelo "id"
 
 ### 👤 Usuário
 
@@ -126,10 +129,8 @@ Todos os endpoints apresentados possuem exemplo de requisição e de resposta da
 Os endpoints a seguir referentes a usuários devem ter seu "body" preenchidos na requisição e como resposta irão retornar "token" de autenticação que poderão ser usados em outras requisições. Acesse a documentação para ler detalhes sobre o preenchimento do _body_ e ler mais informações.
 
 - Cadastro de usuário: http://localhost:3003/user/create
-
 - Login de usuário: http://localhost:3003/user/login
-
-- Pegar todos os usuários cadastrados: http://localhost:3003/user/getAll 
+- Pegar todos os usuários cadastrados: http://localhost:3003/user/getAll
 
 </br>
 
@@ -140,13 +141,9 @@ Os endpoints a seguir referentes a usuários devem ter seu "body" preenchidos na
 Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisição e como resposta irão retornar "token" de autenticação que poderão ser usados em outras requisições. Acesse a documentação para ler detalhes sobre o preenchimento do _body_ e ler mais informações.
 
 - Criar tarefa: http://localhost:3003/task/create
-
 - Atualizar tarefa: http://localhost:3003/task/updateTaskById/
-
 - Deletar tarefa: http://localhost:3003/task/deleteTaskById/382beb5b-c15e-4a45-bf40-23d0828a91d3
-
 - Buscar todas as tarefas: http://localhost:3003/task/getAllPosts
-
 - Buscar tarefa por "id": http://localhost:3003/task/searchPost/382beb5b-c15e-4a45-bf40-23d0828a91d3
 
 ---
@@ -163,11 +160,21 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 
 ---
 
+
+## 🛠Próximos passos
+
+- Aplicar JWT para endpoint delete
+- Aplicar filtros
+- Refatorar arquiterura de 3 camadas para MSC (Controller, Service, Model, Database)
+
+---
+
 ## 🛰Rodando o Projeto
 
 Para Rodar o projeto, siga as seguintes etapas :
 
 * **Acesse o terminal:** GitBash, Windows PowerShell ou outro
+
   * **Clone esse repositório:**
     ```
     git clone https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio.git
@@ -177,27 +184,31 @@ Para Rodar o projeto, siga as seguintes etapas :
     npm install
     ```
 * **Crie um arquivo com nome .env no diretório raiz do projeto:**
+
   ```
   touch .env
   ```
 * **Acesse o arquivo .env, adicione as variáveis de ambiente e preencha as credenciais de acesso do seu Banco de Dados:**
+
   * `DB_HOST = `
   * `DB_USER = `
   * `DB_PASS = `
   * `DB_NAME = `
   * `PORT = 3306`
 * **Acesse o arquivo tables.sql e siga os seguintes passos:**
+
   * Copie as queries de criação de tabelas
   * Cole em seu banco de dados
   * Execute o script para criar as tabelas de usuários e tarefas, respectivemente:
     * to_do_list_users
-    * to_do_list_tasks      
-    
+    * to_do_list_tasks
 * **Acesse novamente o terminal**
+
   * **Inicie o projeto:** rode o comando
     ```
     npm start
     ```
+
 ---
 
 ## 🧑‍🚀Autor
