@@ -68,14 +68,13 @@ export class TaskController {
     try {
 
       const { id } = req.body;
+      const token = req.headers.authorization
 
       const input: deleteTaskInputDTO = {
         id
       };
-
-
     
-      await this.taskBusiness.deleteTaskById(req.params.id)
+      await this.taskBusiness.deleteTaskById(req.params.id, token as string)
 
       res.status(201).send({ message: "Tarefa excluída com sucesso!" });
     } catch (error: any) {

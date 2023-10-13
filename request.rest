@@ -32,8 +32,8 @@ POST http://localhost:3003/task/create
 Content-Type: application/json 
 
 {
-    "tilte": "Gerenciamento de tarefas",
-    "description": "Atualizar o Trello com as novas demandas compartilhadas hoje",
+    "tilte": "Gerenciamento de tarefas10",
+    "description": "Atualizar o Trello com as novas demandas compartilhadas hoje10",
     "deadline": "2023-09-06" ,
     "status": "pendente"
 }
@@ -41,7 +41,7 @@ Content-Type: application/json
 
 //BUSCAR TAREFA POR ID ------------------------------ /
 ###
-GET  http://localhost:3003/task/searchPost/e652bff9-1bd6-4655-9c76-e94a4a97fce1
+GET  http://localhost:3003/task/searchPost/3de89393-fa70-4dac-8ec6-5eed9c98ba8d
 
 //BUSCAR TODAS AS TAREFAS ------------------------------ /
 ###
@@ -60,6 +60,6 @@ Content-Type: application/json
 {
        
         "id": "e652bff9-1bd6-4655-9c76-e94a4a97fce1",
-        "description": "Teste."
+        "description": "Teste2."
 
 }
