@@ -12,14 +12,11 @@ export class TaskBusiness {
     try {
       let { title, description, deadline, status } = input;
       
-
       if (!description) {
         throw new Error(
            'Erro: O campo "description" está vazio! Preencha a descrição da tarefa'
         );
       }
-
-
 
       if (!status) {
         status = STATUS_TYPES.PENDENTE
@@ -31,13 +28,10 @@ export class TaskBusiness {
         );
       }
 
- 
       const id: string = generateId();
-
     
       const authorId = Authenticator.getToken(token).id
   
-
       const task: task = {
         id,
         title,
@@ -54,7 +48,6 @@ export class TaskBusiness {
     }
   };
 
-
   public searchPost = async (id: string) => {
 
     try {
@@ -69,14 +62,11 @@ export class TaskBusiness {
     } 
   };
 
-
- 
   public getAllPosts = async (): Promise<task[]> => {
 
     try {
 
       const task = new TaskDatabase()
-
       const result = await task.getAllPosts()
 
       return result;
@@ -86,11 +76,15 @@ export class TaskBusiness {
     } 
   };
 
-
-  public deleteTaskById = async (id:string): Promise<void> => {
+  public deleteTaskById = async (id:string, token: string): Promise<void> => {
     try {
+
+      const {} = Authenticator.getToken(token)
+    //  console.log(input)
+
+      const taskDatabase = new TaskDatabase()
     
-      await this.taskDatabase.deleteTaskById(id)
+      await taskDatabase.deleteTaskById(id)
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message)
     }
@@ -111,7 +105,7 @@ export class TaskBusiness {
         authorId
       }
       const {} = Authenticator.getToken(token)
-      console.log(input)
+    //  console.log(input)
 
       const taskDatabase = new TaskDatabase()
       const result = await taskDatabase.updateTaskById(updateTaskInput)
