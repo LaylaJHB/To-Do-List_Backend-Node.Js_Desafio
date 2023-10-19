@@ -55,7 +55,7 @@ export class TaskController {
 
    
 
-      const tasks = await this.taskBusiness.getAllPosts()
+      const tasks = await this.taskBusiness.getAllPosts(req.params.title)
 
       res.status(201).send({ tasks });
     } catch (error: any) {
