@@ -62,14 +62,17 @@ export class TaskBusiness {
     } 
   };
 
-  public getAllPosts = async (): Promise<task[]> => {
+  public getAllPosts = async (title: string): Promise<task[]> => {
 
     try {
 
       const task = new TaskDatabase()
       const result = await task.getAllPosts()
 
-      return result;
+      return result.filter(function (task) { 
+        
+        return task.title === title
+      });
 
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message)

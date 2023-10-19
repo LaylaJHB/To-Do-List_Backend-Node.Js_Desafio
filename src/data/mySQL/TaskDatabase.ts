@@ -76,9 +76,21 @@ public deleteTaskById = async(id:string): Promise<void> => {
 
    public updateTaskById = async(task: UpdateTaskInput): Promise<void> => {
 
+         try {  
 
-    
-         try {
+            await TaskDatabase.connection ('to_do_list_tasks')
+            .update(task)
+            .where({id: task.id}); // query builder
+   
+         }  catch (error:any) {
+            throw new CustomError(error.statusCode, error.message);
+         }
+      }; 
+} 
+
+
+
+
 
 
 /*          await TaskDatabase.connection. raw (`
@@ -95,16 +107,4 @@ public deleteTaskById = async(id:string): Promise<void> => {
 /*           await TaskDatabase.connection ('to_do_list_tasks')
             .update({ description: task.description })
             .where("id", "=", task.id);
-*/            
-
-            await TaskDatabase.connection ('to_do_list_tasks')
-            .update(task)
-            .where({id: task.id});
-   
-         }  catch (error:any) {
-            throw new CustomError(error.statusCode, error.message);
-         }
-      }; 
-
-   
-} 
+*/          
