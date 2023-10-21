@@ -120,6 +120,7 @@ Todos os endpoints apresentados possuem exemplo de requisição e de resposta da
 - Atualizar tarefa
 - Deletar tarefa
 - Buscar todas as tarefas cadastradas
+- Buscar tarefas filtradas por título
 - Buscar tarefa específica pelo "id"
 
 ### 👤 Usuário
@@ -144,6 +145,7 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 - Atualizar tarefa: http://localhost:3003/task/updateTaskById/
 - Deletar tarefa: http://localhost:3003/task/deleteTaskById/382beb5b-c15e-4a45-bf40-23d0828a91d3
 - Buscar todas as tarefas: http://localhost:3003/task/getAllPosts
+- Buscar tarefas filtradas por título: http://localhost:3003/task/getAllPosts?title=Jira
 - Buscar tarefa por "id": http://localhost:3003/task/searchPost/382beb5b-c15e-4a45-bf40-23d0828a91d3
 
 ---
@@ -163,8 +165,9 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 
 ## 🛠Próximos passos
 
-- Aplicar JWT para endpoint delete
 - Aplicar filtros
+   - [✅] Filtro de tarefas por título
+   - [     ] Filtro de tarefas por status 
 - Refatorar arquiterura de 3 camadas para MSC (Controller, Service, Model, Database)
 
 ---
