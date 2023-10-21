@@ -54,10 +54,10 @@ export class TaskController {
     try {
 
    
-
-      const tasks = await this.taskBusiness.getAllPosts(req.params.title)
-
-      res.status(201).send({ tasks });
+      const title = req.query.title
+      const result = await this.taskBusiness.getAllPosts(title as string)
+     
+      res.status(201).send(result);
     } catch (error: any) {
       res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
     }
