@@ -45,7 +45,7 @@ export class TaskDatabase extends BaseDatabase implements TaskRepository {
    public getAllPosts = async(): Promise<task[]> => {
       try {
          const returnAllPosts = await TaskDatabase.connection
-         .select('*')
+         .select ('*')
          .into('to_do_list_tasks')
 
          return returnAllPosts;
