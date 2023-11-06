@@ -42,11 +42,23 @@ export class TaskDatabase extends BaseDatabase implements TaskRepository {
 
 
 
-   public getAllPosts = async(): Promise<task[]> => {
+   public getAllPosts = async(page: number): Promise<task[]> => {
       try {
+         const offset = (page -1) * 2
+         // page =1, offset = 0
+         // page =2, offset = 2
+         // page =3, offset = 4
+         // page =4, offset = 6
+         // page 5, offset = 8
+         
+
          const returnAllPosts = await TaskDatabase.connection
          .select ('*')
          .into('to_do_list_tasks')
+         .limit (2)
+         .offset (offset)
+
+
 
          return returnAllPosts;
 

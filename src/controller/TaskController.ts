@@ -53,9 +53,12 @@ export class TaskController {
   public getAllPosts = async (req: Request, res: Response) => {
     try {
 
-   
-      const title = req.query.title
-      const result = await this.taskBusiness.getAllPosts(title as string)
+   const options = {
+    title: req.query.title,
+    status: req.query.status,
+    page: req.query.page
+   }
+      const result = await this.taskBusiness.getAllPosts(options)
      
       res.status(201).send(result);
     } catch (error: any) {

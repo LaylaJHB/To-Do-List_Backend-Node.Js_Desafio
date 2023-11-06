@@ -62,18 +62,27 @@ export class TaskBusiness {
     }
   };
 
-  public getAllPosts = async (title: string): Promise<task[]> => {
+  public getAllPosts = async (options: any): Promise<task[]> => {
+
+    
     try {
       const task = new TaskDatabase();
-      const result = await task.getAllPosts();
+      let result = await task.getAllPosts(options.page || 1 );
 
-      if (title) {
-        return result.filter(function (task) {
-          return task.title.toLowerCase().includes (title.toLowerCase());
-        });
-      } else {
-        return result;
+      if (options.title) {                            // se title não for passado (undefined) no Postman por query.params, o título não será filtrado, mas se o status for passado, o status será filtrado. Se ambos passados, primeiro fitrará título e depois status desses títulos.
+        result = result.filter(function (task) {
+          return task.title.toLowerCase().includes (options.title.toLowerCase());
+        })
       }
+     
+      if (options.status) {
+        result = result.filter(function (task) {
+          return task.status.toLowerCase().includes (options.status.toLowerCase());
+        });
+      }
+
+      return result;
+
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message);
     }
