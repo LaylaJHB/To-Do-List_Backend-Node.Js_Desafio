@@ -10,7 +10,7 @@ CREATE TABLE to_do_list_tasks (
     title VARCHAR(64) NOT NULL,
     description VARCHAR(1024) DEFAULT "No description provided",
     deadline DATE,
-    status ENUM("pendente", "em_andamento", "concluída") DEFAULT "pendente",
+    status ENUM("pending", "progress", "completed") DEFAULT "pending",
     author_id VARCHAR(64),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (author_id) REFERENCES to_do_list_users(id)
