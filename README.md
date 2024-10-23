@@ -57,6 +57,7 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 ## 🕵Resultados
 
+## ✨ Criar usuário
 Aqui apresento um pouco dos resultados obtidos e para começar o video abaixo mostra a criação do usuário com senha criptografada.
 - Ferramenta de requisição: Postman
 - Banco de dados: MySQL
@@ -64,9 +65,21 @@ Aqui apresento um pouco dos resultados obtidos e para começar o video abaixo mo
 
 https://github.com/user-attachments/assets/fac302fc-8edb-482f-b90d-3dafe37f7a60
 
+<br>
 
+## ✨ Login do usuário com validações
+  O usuário precisa realizar login para que possa posteriormente criar tarefas. Aqui apresento pequenas validações de login durante a requisição e ao final o login realizado com sucesso.
+- Ferramenta de requisição: Postman
+- Banco de dados: MySQL
+- Tabela: to_do_list_users
+
+https://github.com/user-attachments/assets/ed2565cd-1f55-4d09-97e4-8c7ed5c5ec40
 
 ---
+
+
+
+
 
 ## 🛠Stack
 
