@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
 import { UserInputDTO, LoginInputDTO } from "../model/user";
+import { data } from "jquery";
 
 export class UserController {
   constructor(private userBusiness: UserBusiness ) {}
@@ -28,8 +29,11 @@ export class UserController {
   public getUsers = async (req: Request, res: Response):Promise<void> => {
     try {
      
-       const name = req.query.name
-      
+       const name = 32
+      // console.log([] instanceof Array)
+
+      console.assert(name==undefined || typeof name == "string", "Validação de filtro name")
+
        const users = await this.userBusiness.getUsers()
 
        res.status(201).send(users)
