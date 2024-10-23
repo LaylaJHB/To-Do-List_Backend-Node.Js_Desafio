@@ -8,7 +8,7 @@ export class InvalidEmail extends CustomError {
 
 export class InvalidPassword extends CustomError {
     constructor(){
-        super(400, "Senha Inválida, ela precisa ter no mínimo 6 caracteres")
+        super(400, "Senha Inválida, ela precisa ter no mínimo 7 caracteres")
     }
 }
 

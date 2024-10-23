@@ -78,10 +78,10 @@ export class UserBusiness {
          )
      }
 
-     if (password.length < 6) {
+     if (password.length < 7) {
        throw new CustomError(
          422,
-         "É necessário que a senha tenha pelo menos 6 caracteres."
+         "É necessário que a senha tenha pelo menos 7 caracteres."
        )
      }
 
@@ -93,9 +93,6 @@ export class UserBusiness {
 
      const hashManager = new HashManager()
      const passwordIsCorrect = hashManager.compare(password, user.password);
-     
-    
-     
 
      if (!user) {
        throw new UserNotFound()

@@ -54,7 +54,7 @@ export class UserController {
       }
 
       const token = await this.userBusiness.login(input)
-
+     
       res.status(200).send({token})
 
     } catch (error:any) {
