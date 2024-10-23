@@ -57,7 +57,10 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 ## 🕵Resultados
 
-
+Aqui apresento um pouco dos resultados obtidos e para começar o video abaixo mostra a criação do usuário com senha criptografada.
+- Ferramenta de requisição: Postman
+- Banco de dados: MySQL
+- Tabela: to_do_list_users
 
 https://github.com/user-attachments/assets/fac302fc-8edb-482f-b90d-3dafe37f7a60
 
