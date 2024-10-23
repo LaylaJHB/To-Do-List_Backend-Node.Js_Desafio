@@ -55,6 +55,16 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 ---
 
+## 🕵Resultados
+
+
+
+https://github.com/user-attachments/assets/fac302fc-8edb-482f-b90d-3dafe37f7a60
+
+
+
+---
+
 ## 🛠Stack
 
 - Back-end
