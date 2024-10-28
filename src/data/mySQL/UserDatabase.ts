@@ -47,4 +47,17 @@ export class UserDatabase extends BaseDatabase implements UserRepository {
     }
   };
 
+  public getUserById = async (id: string): Promise<user[]> => {
+    try {
+      const userId = await UserDatabase.connection
+        .select()
+        .where({ id })
+        .from("to_do_list_users");
+
+      return userId;
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  };
+
 }

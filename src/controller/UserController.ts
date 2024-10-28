@@ -62,4 +62,19 @@ export class UserController {
     }
   }
 
+  public getUserById = async (req: Request, res: Response) => {
+    try {
+
+   
+      const id: string = req.params.id
+
+     
+      const userId = await this.userBusiness.getUserById(id)
+
+      res.status(201).send({ userId });
+    } catch (error: any) {
+      res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+    }
+  };
+
 }
