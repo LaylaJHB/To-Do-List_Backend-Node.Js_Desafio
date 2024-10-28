@@ -125,5 +125,16 @@ export class UserBusiness {
    }
  };
 
+ public deleteUserById = async (id: string, token: string): Promise<void> => {
+   try {
+     const {} = Authenticator.getToken(token);
+     //  console.log(input)
 
+     const userDatabase = new UserDatabase();
+
+     await userDatabase.deleteUserById(id);
+   } catch (error: any) {
+     throw new CustomError(error.statusCode, error.message);
+   }
+ };
 }

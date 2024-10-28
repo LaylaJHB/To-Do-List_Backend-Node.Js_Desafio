@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { UserInputDTO, LoginInputDTO } from "../model/user";
+import { UserInputDTO, LoginInputDTO, deleteUserInputDTO } from "../model/user";
 import { data } from "jquery";
 
 export class UserController {
@@ -72,6 +72,24 @@ export class UserController {
       const userId = await this.userBusiness.getUserById(id)
 
       res.status(201).send({ userId });
+    } catch (error: any) {
+      res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+    }
+  };
+
+  public deleteUserById = async (req: Request, res: Response) => {
+    try {
+
+      const { id } = req.body;
+      const token = req.headers.authorization
+
+      const input: deleteUserInputDTO = {
+        id
+      };
+    
+      await this.userBusiness.deleteUserById(req.params.id, token as string)
+
+      res.status(201).send({ message: "Tarefa excluída com sucesso!" });
     } catch (error: any) {
       res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
     }

@@ -60,4 +60,20 @@ export class UserDatabase extends BaseDatabase implements UserRepository {
     }
   };
 
+  public deleteUserById = async(id:string): Promise<void> => {
+
+
+    let input = {}
+       try {
+          
+          await UserDatabase.connection('to_do_list_users')
+          .delete()
+          .where({id});
+          
+ 
+       }  catch (error:any) {
+          throw new CustomError(error.statusCode, error.message);
+       }
+    }; 
+
 }
