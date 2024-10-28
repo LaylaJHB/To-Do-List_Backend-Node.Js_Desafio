@@ -142,6 +142,8 @@ Todos os endpoints apresentados possuem exemplo de requisição e de resposta da
 - Cadastrar usuário
 - Realizar login do usuário
 - Pegar todos os usuários cadastrados
+- Pegar usuário por Id
+- Deletar usuário
 - Criar tarefa
 - Atualizar tarefa
 - Deletar tarefa
@@ -161,6 +163,8 @@ Os endpoints a seguir referentes a usuários devem ter seu "body" preenchidos na
 - Cadastro de usuário: http://localhost:3003/user/create
 - Login de usuário: http://localhost:3003/user/login
 - Pegar todos os usuários cadastrados: http://localhost:3003/user/getAll
+- Pegar usuário por id: http://localhost:3003/user/getUserById/:id
+- Deletar usuário: http://localhost:3003/user/deleteUserById/:id
 
 </br>
 
