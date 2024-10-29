@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "tsc && node ./build/index.js",
     "dev": "ts-node-dev ./src/index.ts",
     "dev-prof-rodrigo": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
-    "start": "tsc && node ./build/index.js",
     "build": "tsc",
     "migrations": "tsc && node ./build/migrations.js"
   },
@@ -40,7 +40,7 @@
     "@types/jquery": "^3.5.18",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/knex": "^0.16.1",
-    "@types/node": "^18.11.18",
+    "@types/node": "^18.19.61",
     "@types/uuid": "^9.0.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^3.9.4"
