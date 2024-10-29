@@ -16,3 +16,7 @@ userRouter.get("/",(req, res) => userController.getUsers(req, res))
 userRouter.post('/create',(req, res) => userController.createUser(req, res))
 
 userRouter.post('/login',(req, res) => userController.login(req, res))
+
+userRouter.get('/getUserById/:id',(req, res) => userController.getUserById(req, res))
+
+userRouter.delete('/deleteUserById/:id', (req, res) => userController.deleteUserById(req, res))

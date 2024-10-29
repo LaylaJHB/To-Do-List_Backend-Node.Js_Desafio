@@ -6,6 +6,7 @@ import { HashManager } from "../services/hashManager";
 import { Authenticator } from "../services/authenticator";
 import { UserRepository } from "./UserRepository";
 import { UserNotFound } from "../error/UserErrors";
+import { UserDatabase } from "../data/mySQL/UserDatabase";
 
 
 
@@ -113,6 +114,27 @@ export class UserBusiness {
    }
  }
 
+ public getUserById = async (id: string) => {
+   try {
+     const userId = new UserDatabase();
+     const result = await userId.getUserById(id);
 
+     return result;
+   } catch (error: any) {
+     throw new CustomError(error.statusCode, error.message);
+   }
+ };
 
+ public deleteUserById = async (id: string, token: string): Promise<void> => {
+   try {
+     const {} = Authenticator.getToken(token);
+     //  console.log(input)
+
+     const userDatabase = new UserDatabase();
+
+     await userDatabase.deleteUserById(id);
+   } catch (error: any) {
+     throw new CustomError(error.statusCode, error.message);
+   }
+ };
 }
