@@ -55,6 +55,32 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 ---
 
+## 🕵Resultados
+
+## ✨ Criar usuário
+Aqui apresento um pouco dos resultados obtidos e para começar o video abaixo mostra a criação do usuário com senha criptografada.
+- Ferramenta de requisição: Postman
+- Banco de dados: MySQL
+- Tabela: to_do_list_users
+
+https://github.com/user-attachments/assets/fac302fc-8edb-482f-b90d-3dafe37f7a60
+
+<br>
+
+## ✨ Login do usuário com validações
+  O usuário precisa realizar login para que possa posteriormente criar tarefas. Aqui apresento pequenas validações de login durante a requisição e ao final o login realizado com sucesso.
+- Ferramenta de requisição: Postman
+- Banco de dados: MySQL
+- Tabela: to_do_list_users
+
+https://github.com/user-attachments/assets/ed2565cd-1f55-4d09-97e4-8c7ed5c5ec40
+
+---
+
+
+
+
+
 ## 🛠Stack
 
 - Back-end
@@ -116,6 +142,8 @@ Todos os endpoints apresentados possuem exemplo de requisição e de resposta da
 - Cadastrar usuário
 - Realizar login do usuário
 - Pegar todos os usuários cadastrados
+- Pegar usuário por Id
+- Deletar usuário
 - Criar tarefa
 - Atualizar tarefa
 - Deletar tarefa
@@ -135,6 +163,8 @@ Os endpoints a seguir referentes a usuários devem ter seu "body" preenchidos na
 - Cadastro de usuário: http://localhost:3003/user/create
 - Login de usuário: http://localhost:3003/user/login
 - Pegar todos os usuários cadastrados: http://localhost:3003/user/getAll
+- Pegar usuário por id: http://localhost:3003/user/getUserById/:id
+- Deletar usuário: http://localhost:3003/user/deleteUserById/:id
 
 </br>
 
