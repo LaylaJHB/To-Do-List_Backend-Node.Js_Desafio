@@ -5,6 +5,7 @@ services:
   runtime: node
   repo: https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio
   plan: free
+  autoDeploy: true
   envVars:
   - key: JWT_KEY
     sync: true
