@@ -6,8 +6,6 @@ services:
   repo: https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio
   plan: free
   envVars:
-  - key: JWT_KEY
-    sync: true
   - key: DB_USER
     sync: true
   - key: DB_PASS
