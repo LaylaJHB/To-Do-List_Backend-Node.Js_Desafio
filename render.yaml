@@ -1,11 +1,10 @@
-# Exported from Render on 2024-10-30T13:51:34Z
+# Exported from Render
 services:
 - type: web
   name: To-Do-List_Backend-Node.Js_Desafio
   runtime: node
   repo: https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio
   plan: free
-  autoDeploy: true
   envVars:
   - key: JWT_KEY
     sync: true
