@@ -255,7 +255,18 @@ Para Rodar o projeto, siga as seguintes etapas :
     ```
     npm start
     ```
+* Scripts
+  * migrate:latest: Aplica todas as migrações pendentes no banco de dados.
+    * npm run migrate:latest
 
+  * migrate:rollback: Desfaz a última migração executada.
+    * npm run migrate:rollback
+
+  * migrate:make: Cria um novo arquivo de migração. Para usar, passe o nome da migração no final do comando, assim:
+  npm run migrate:make -- <nome_da_migracao>
+    * npm run migrate:make -- create_to_do_list_tables
+  
+  A estrutura das tabelas estão no arquivo 20241101130458_create_to_do_list_tables.js
 ---
 
 ## 🧑‍🚀Autor
