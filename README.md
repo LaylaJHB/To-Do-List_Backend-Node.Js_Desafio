@@ -75,6 +75,25 @@ https://github.com/user-attachments/assets/fac302fc-8edb-482f-b90d-3dafe37f7a60
 
 https://github.com/user-attachments/assets/ed2565cd-1f55-4d09-97e4-8c7ed5c5ec40
 
+## ✨ Pegar todos os usuários
+- Banco de dados: MySQL
+- Tabela: to_do_list_users
+
+
+https://github.com/user-attachments/assets/a7cf920b-1a59-4fa6-bef7-a33b1525e854
+
+
+
+
+
+## ✨ Pegar task por título
+- Banco de dados: MySQL
+- Tabela: to_do_list_tasks
+
+https://github.com/user-attachments/assets/ea8f4386-baac-47c7-b628-a674b1da863d
+
+
+
 ---
 
 
