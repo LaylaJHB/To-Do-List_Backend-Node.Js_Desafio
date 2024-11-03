@@ -14,9 +14,16 @@ Sistema de Gerenciamento de Tarefas
 
 ---
 
-## 🧭Status do Projeto
+## 🧭Status
 
-- ⏳ Fazendo
+- Projeto: feito e aprovado
+- Resultado da Seleção para vaga Backend Developer II: aprovada (selecionada para a vaga)
+
+---
+
+## Status do Projeto após aprovação
+
+- ⏳ Adicionando features
 
 ---
 
