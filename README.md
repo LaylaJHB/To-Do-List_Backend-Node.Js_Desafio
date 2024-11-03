@@ -261,11 +261,8 @@ Para Rodar o projeto, siga as seguintes etapas :
   * `DB_PASS = `
   * `DB_NAME = `
   * `PORT = 3306`
-* **Acesse o arquivo tables.sql e siga os seguintes passos:**
 
-  * Copie as queries de criação de tabelas
-  * Cole em seu banco de dados
-  * Execute o script para criar as tabelas de usuários e tarefas, respectivemente:
+* Execute o script para criar as tabelas de usuários e tarefas, respectivemente:
     * to_do_list_users
     * to_do_list_tasks
 * **Acesse novamente o terminal**
@@ -274,18 +271,21 @@ Para Rodar o projeto, siga as seguintes etapas :
     ```
     npm start
     ```
-* Scripts
+
+## **Rode os scripts abaixo para criar as tabelas e os dados**
+
+
+## Scripts
   * migrate:latest: Aplica todas as migrações pendentes no banco de dados.
-    * npm run migrate:latest
-
+    ```
+    npm run migrate:latest
+    ```
   * migrate:rollback: Desfaz a última migração executada.
-    * npm run migrate:rollback
+    ```
+    npm run migrate:rollback
+    ```
 
-  * migrate:make: Cria um novo arquivo de migração. Para usar, passe o nome da migração no final do comando, assim:
-  npm run migrate:make -- <nome_da_migracao>
-    * npm run migrate:make -- create_to_do_list_tables
   
-  A estrutura das tabelas estão no arquivo 20241101130458_create_to_do_list_tables.js
 ---
 
 ## 🧑‍🚀Autor
