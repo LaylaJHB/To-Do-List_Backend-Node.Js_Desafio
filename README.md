@@ -1,3 +1,9 @@
+<p align="center">
+<img src="https://img.shields.io/github/last-commit/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio"/> <img src="https://visitor-badge.laobi.icu/badge?page_id=LaylaJHB.To-Do-List_Backend-Node.Js_Desafio" />
+<img src="https://img.shields.io/github/created-at/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio"/> <a href="https://portifolio2024-bay.vercel.app"><img width="90px" src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=black")] (https://portifolio2024-bay.vercel.app)
+</p>
+<br>
+  
 # Sistema de Gerenciamento de Tarefas
 
 ---
