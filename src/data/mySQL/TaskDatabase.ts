@@ -55,7 +55,8 @@ export class TaskDatabase extends BaseDatabase implements TaskRepository {
          const returnAllPosts = await TaskDatabase.connection
          .select ('*')
          .into('to_do_list_tasks')
-         .limit (2)
+         .orderBy('deadline')
+         .limit (10)
          .offset (offset)
 
 
