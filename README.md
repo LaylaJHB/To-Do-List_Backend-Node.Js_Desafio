@@ -115,7 +115,7 @@ https://github.com/user-attachments/assets/ea8f4386-baac-47c7-b628-a674b1da863d
 
 ## 🛠Stack
 
-- Back-end
+- Backend
 
 ---
 
@@ -179,7 +179,7 @@ Todos os endpoints apresentados possuem exemplo de requisição e de resposta da
 - Criar tarefa
 - Atualizar tarefa
 - Deletar tarefa
-- Buscar todas as tarefas cadastradas
+- Buscar todas as tarefas cadastradas com paginação e ordenadas por deadline da task
 - Buscar tarefas pelo número da página
 - Buscar tarefas filtradas por título
 - Buscar tarefas filtradas por status
@@ -241,10 +241,7 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 
 ## 🛠Próximos passos
 
-- [    ] Aplicar busca ordenada
 - [    ] Aplicar testes
-
-- Refatorar arquiterura de 3 camadas para MSC (Controller, Service, Model, Database)
 
 ---
 
