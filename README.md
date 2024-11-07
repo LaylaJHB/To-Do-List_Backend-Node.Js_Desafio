@@ -68,9 +68,11 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 ---
 
-## 🕵Resultados
+## 🕵Resultados em video
 
-## ✨ Criar usuário
+## Usuários
+
+## 👲 Criar usuário
 Aqui apresento um pouco dos resultados obtidos e para começar o video abaixo mostra a criação do usuário com senha criptografada.
 - Ferramenta de requisição: Postman
 - Banco de dados: MySQL
@@ -80,7 +82,7 @@ https://github.com/user-attachments/assets/fac302fc-8edb-482f-b90d-3dafe37f7a60
 
 <br>
 
-## ✨ Login do usuário com validações
+## 👲 Login do usuário com validações
   O usuário precisa realizar login para que possa posteriormente criar tarefas. Aqui apresento pequenas validações de login durante a requisição e ao final o login realizado com sucesso.
 - Ferramenta de requisição: Postman
 - Banco de dados: MySQL
@@ -88,23 +90,26 @@ https://github.com/user-attachments/assets/fac302fc-8edb-482f-b90d-3dafe37f7a60
 
 https://github.com/user-attachments/assets/ed2565cd-1f55-4d09-97e4-8c7ed5c5ec40
 
-## ✨ Pegar todos os usuários
+## 👲 Buscar todos os usuários
 - Banco de dados: MySQL
 - Tabela: to_do_list_users
 
 
 https://github.com/user-attachments/assets/a7cf920b-1a59-4fa6-bef7-a33b1525e854
 
+## Tarefas
 
-
-
-
-## ✨ Pegar task por título
+## 🧾 Buscar tarefa por título
 - Banco de dados: MySQL
 - Tabela: to_do_list_tasks
 
 https://github.com/user-attachments/assets/ea8f4386-baac-47c7-b628-a674b1da863d
 
+
+
+## 🧾 Buscar todas as tarefas ordenadas por deadline
+
+https://github.com/user-attachments/assets/c18351ea-08a5-4026-948d-f78a1978ccbf
 
 
 ---
@@ -171,11 +176,14 @@ Cada uma com os seguintes dados:
 
 Todos os endpoints apresentados possuem exemplo de requisição e de resposta da requisição. Acesse a documentação para mais informações.
 
+### User
 - Cadastrar usuário
 - Realizar login do usuário
 - Pegar todos os usuários cadastrados
 - Pegar usuário por Id
 - Deletar usuário
+  
+### Task
 - Criar tarefa
 - Atualizar tarefa
 - Deletar tarefa
