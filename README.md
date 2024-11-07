@@ -1,3 +1,9 @@
+<p align="center">
+<img src="https://img.shields.io/github/last-commit/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio"/> <img src="https://visitor-badge.laobi.icu/badge?page_id=LaylaJHB.To-Do-List_Backend-Node.Js_Desafio" />
+<img src="https://img.shields.io/github/created-at/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio"/>   <img src="https://img.shields.io/github/license/laylajhb/To-Do-List_Backend-Node.Js_Desafio"/> <a href="https://portifolio2024-bay.vercel.app"><img width="90px" src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=black")] (https://portifolio2024-bay.vercel.app)
+</p>
+<br>
+  
 # Sistema de Gerenciamento de Tarefas
 
 ---
@@ -14,9 +20,16 @@ Sistema de Gerenciamento de Tarefas
 
 ---
 
-## 🧭Status do Projeto
+## 🧭Status
 
-- ⏳ Fazendo
+- Projeto: feito e aprovado
+- Resultado da Seleção para vaga Backend Developer II: aprovada (selecionada para a vaga)
+
+---
+
+## Status do Projeto após aprovação
+
+- ⏳ Adicionando features
 
 ---
 
@@ -74,6 +87,25 @@ https://github.com/user-attachments/assets/fac302fc-8edb-482f-b90d-3dafe37f7a60
 - Tabela: to_do_list_users
 
 https://github.com/user-attachments/assets/ed2565cd-1f55-4d09-97e4-8c7ed5c5ec40
+
+## ✨ Pegar todos os usuários
+- Banco de dados: MySQL
+- Tabela: to_do_list_users
+
+
+https://github.com/user-attachments/assets/a7cf920b-1a59-4fa6-bef7-a33b1525e854
+
+
+
+
+
+## ✨ Pegar task por título
+- Banco de dados: MySQL
+- Tabela: to_do_list_tasks
+
+https://github.com/user-attachments/assets/ea8f4386-baac-47c7-b628-a674b1da863d
+
+
 
 ---
 
@@ -242,11 +274,8 @@ Para Rodar o projeto, siga as seguintes etapas :
   * `DB_PASS = `
   * `DB_NAME = `
   * `PORT = 3306`
-* **Acesse o arquivo tables.sql e siga os seguintes passos:**
 
-  * Copie as queries de criação de tabelas
-  * Cole em seu banco de dados
-  * Execute o script para criar as tabelas de usuários e tarefas, respectivemente:
+* Execute o script para criar as tabelas de usuários e tarefas, respectivemente:
     * to_do_list_users
     * to_do_list_tasks
 * **Acesse novamente o terminal**
@@ -255,18 +284,21 @@ Para Rodar o projeto, siga as seguintes etapas :
     ```
     npm start
     ```
-* Scripts
+
+## **Rode os scripts abaixo para criar as tabelas e os dados**
+
+
+## Scripts
   * migrate:latest: Aplica todas as migrações pendentes no banco de dados.
-    * npm run migrate:latest
-
+    ```
+    npm run migrate:latest
+    ```
   * migrate:rollback: Desfaz a última migração executada.
-    * npm run migrate:rollback
+    ```
+    npm run migrate:rollback
+    ```
 
-  * migrate:make: Cria um novo arquivo de migração. Para usar, passe o nome da migração no final do comando, assim:
-  npm run migrate:make -- <nome_da_migracao>
-    * npm run migrate:make -- create_to_do_list_tables
   
-  A estrutura das tabelas estão no arquivo 20241101130458_create_to_do_list_tables.js
 ---
 
 ## 🧑‍🚀Autor
