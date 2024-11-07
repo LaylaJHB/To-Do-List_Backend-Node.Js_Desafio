@@ -68,6 +68,28 @@ Compartilhe o código-fonte do projeto através de um repositório no GitHub. Ce
 
 ---
 
+## ⭕Endpoints
+
+Todos os endpoints apresentados possuem exemplo de requisição e de resposta da requisição. Acesse a documentação para mais informações.
+
+### User
+- Cadastrar usuário
+- Realizar login do usuário
+- Pegar todos os usuários cadastrados
+- Pegar usuário por Id
+- Deletar usuário
+  
+### Task
+- Criar tarefa
+- Atualizar tarefa
+- Deletar tarefa
+- Buscar todas as tarefas cadastradas com paginação e ordenadas por deadline da task
+- Buscar tarefas pelo número da página
+- Buscar tarefas filtradas por título
+- Buscar tarefas filtradas por status
+- Buscar tarefas filtradas por título e status
+- Buscar tarefa específica pelo "id"
+
 ## 🕵Resultados em video
 
 ## Usuários
@@ -171,28 +193,6 @@ Cada uma com os seguintes dados:
 | • authorId                                         | -               |
 
 ---
-
-## ⭕Endpoints
-
-Todos os endpoints apresentados possuem exemplo de requisição e de resposta da requisição. Acesse a documentação para mais informações.
-
-### User
-- Cadastrar usuário
-- Realizar login do usuário
-- Pegar todos os usuários cadastrados
-- Pegar usuário por Id
-- Deletar usuário
-  
-### Task
-- Criar tarefa
-- Atualizar tarefa
-- Deletar tarefa
-- Buscar todas as tarefas cadastradas com paginação e ordenadas por deadline da task
-- Buscar tarefas pelo número da página
-- Buscar tarefas filtradas por título
-- Buscar tarefas filtradas por status
-- Buscar tarefas filtradas por título e status
-- Buscar tarefa específica pelo "id"
 
 ### 👤 Usuário
 
