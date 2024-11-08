@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { UserInputDTO, LoginInputDTO, deleteUserInputDTO } from "../model/user";
+import { UserInputDTO, LoginInputDTO, deleteUserInputDTO, UpdateUserInputDTO } from "../model/user";
 import { data } from "jquery";
 
 export class UserController {
@@ -95,4 +95,26 @@ export class UserController {
     }
   };
 
+  public updateUserById = async (req: Request, res: Response) => {
+
+    try{
+
+      const token = req.headers.authorization || "";
+
+    const input: UpdateUserInputDTO = {
+      id: req.body.id as string,
+      name: req.body.name as string,
+      email: req.body.email as string,
+      password: req.body.password as string,
+      token: req.headers.authorization as string
+    }
+
+    const users = await this.userBusiness.updateUserById(input);
+
+    res.status(201).send({ message: "Usuário atualizado com sucesso!", users });
+  } catch (error: any) {
+    res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
+  }
+
+};
 }

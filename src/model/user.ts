@@ -30,3 +30,18 @@ export interface login {
  export interface deleteUserInputDTO {
    id: string
   }
+
+  export interface UpdateUserInputDTO {
+   id: string,
+   name: string,
+   email: string,
+   password: string
+   token: string
+  }
+
+  export interface UpdateUserInput {
+   id: string,
+   name: string,
+   email: string,
+   password: string
+  }

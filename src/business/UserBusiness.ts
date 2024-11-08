@@ -1,5 +1,5 @@
 import { CustomError, InvalidEmail, InvalidPassword } from "../error/CustomError";
-import { UserInputDTO, LoginInputDTO } from "../model/user";
+import { UserInputDTO, LoginInputDTO, UpdateUserInput, UpdateUserInputDTO } from "../model/user";
 import { user } from "../model/user";
 import { generateId } from "../services/idGenerator";
 import { HashManager } from "../services/hashManager";
@@ -134,4 +134,29 @@ export class UserBusiness {
      throw new CustomError(error.statusCode, error.message);
    }
  };
+
+ public updateUserById = async (input: UpdateUserInputDTO) => {
+
+  try {
+    const { id, name, email, password, token } = input;
+
+    const updateUserInput: UpdateUserInput = {
+      id,
+      name,
+      email,
+      password,
+    };
+
+    const {} = Authenticator.getToken(token);
+
+    const userDatabase = new UserDatabase();
+    const result = await userDatabase.updateUserById(updateUserInput);
+
+    return result;
+
+  } catch (error: any) {
+    throw new CustomError(error.statusCode, error.message);
+  }
+ };
+ 
 }
