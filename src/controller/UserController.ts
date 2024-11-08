@@ -111,7 +111,7 @@ export class UserController {
 
     const users = await this.userBusiness.updateUserById(input);
 
-    res.status(201).send({ users });
+    res.status(201).send({ message: "Usuário atualizado com sucesso!", users });
   } catch (error: any) {
     res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
   }
