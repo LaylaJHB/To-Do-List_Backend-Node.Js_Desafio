@@ -1,6 +1,6 @@
 import { UserRepository } from "../../business/UserRepository";
 import { CustomError } from "../../error/CustomError";
-import { user } from "../../model/user";
+import { user, UpdateUserInput } from "../../model/user";
 import { BaseDatabase } from "./BaseDatabase";
 
 
@@ -76,4 +76,15 @@ export class UserDatabase extends BaseDatabase implements UserRepository {
        }
     }; 
 
+    public updateUserById = async(user: UpdateUserInput): Promise<void> => {
+      try {
+
+        await UserDatabase.connection ('to_do_list_users')
+        .update(user)
+        .where({id: user.id});
+
+      } catch (error:any) {
+        throw new CustomError(error.statusCode, error.message);
+      }
+    };
 }
