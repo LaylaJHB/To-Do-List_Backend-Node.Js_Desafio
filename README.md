@@ -77,6 +77,7 @@ Todos os endpoints apresentados possuem exemplo de requisição e de resposta da
 - Realizar login do usuário
 - Pegar todos os usuários cadastrados
 - Pegar usuário por Id
+- Atualiza usuário
 - Deletar usuário
   
 ### Task
@@ -204,6 +205,7 @@ Os endpoints a seguir referentes a usuários devem ter seu "body" preenchidos na
 - Login de usuário: http://localhost:3003/user/login
 - Pegar todos os usuários cadastrados: http://localhost:3003/user/getAll
 - Pegar usuário por id: http://localhost:3003/user/getUserById/:id
+- Atualizar usuário: http://localhost:3003/user/updateUserById/
 - Deletar usuário: http://localhost:3003/user/deleteUserById/:id
 
 </br>
@@ -231,12 +233,6 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
   - query.params -> status
 - Buscar tarefas por paginação: http://localhost:3003/task/getAllPosts
   - query.params -> page
-
----
-
-## 🔗Deploy
-
-- **Link do Deploy no Render:** próximo passo
 
 ---
 
