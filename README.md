@@ -157,6 +157,14 @@ Arquitetura de software em 3 camadas (3-tiers):
 
 ---
 
+
+## 📈Diagrama de Entidade de Relacionamento (ERD)
+
+![2](https://github.com/user-attachments/assets/de5ebc9c-488a-4078-babe-b57e4a50f746)
+
+
+---
+
 ## 🛠Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes ferramentas e tecnologias:
