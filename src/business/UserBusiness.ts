@@ -11,6 +11,7 @@ import { UserDatabase } from "../data/mySQL/UserDatabase";
 
 
 export class UserBusiness {
+  signup: any;
    constructor(private userDatabase: UserRepository){}
 
   public createUser = async (input: UserInputDTO) => {

@@ -11,7 +11,10 @@
     "migrations": "tsc && node ./build/migrations.js",
     "migrate:latest": "knex migrate:latest --knexfile knexfile.js",
     "migrate:rollback": "knex migrate:rollback --knexfile knexfile.js",
-    "migrate:make": "knex migrate:make"
+    "migrate:make": "knex migrate:make",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -32,7 +35,6 @@
     "knex": "^2.4.2",
     "mysql2": "^3.11.3",
     "ts-node": "^10.9.2",
-    "typescript": "^3.9.4",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -40,12 +42,15 @@
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.15",
+    "@types/jest": "^29.5.14",
     "@types/jquery": "^3.5.18",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/knex": "^0.16.1",
     "@types/node": "^18.19.61",
     "@types/uuid": "^9.0.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^3.9.4"
+    "typescript": "^5.7.2"
   }
 }

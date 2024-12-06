@@ -45,3 +45,8 @@ export interface login {
    email: string,
    password: string
   }
+
+export const USER_ROLES = {
+   NORMAL: "normal",
+   ADMIN: "admin",
+}
