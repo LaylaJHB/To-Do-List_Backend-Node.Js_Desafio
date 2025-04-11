@@ -244,6 +244,11 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 
 ---
 
+## 🧪Testes
+
+- [✅] Signup
+- [✅] Login
+
 ## 🔗Documentação
 
 - **Link da Documentação no Postman:** https://documenter.getpostman.com/view/22349688/2s9YBxZbXr
@@ -253,7 +258,7 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 
 ## 🛠Próximos passos
 
-- [    ] Aplicar testes
+
 
 ---
 
