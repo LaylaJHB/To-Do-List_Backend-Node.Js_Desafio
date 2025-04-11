@@ -2,14 +2,15 @@ export type user = {
    id: string,
    name: string,
    email: string,
-   password: string
+   password: string,
+   role: string
 }
 
  export interface UserInputDTO {
-    id: string,
     name: string,
     email: string,
     password: string
+    role: USER_ROLES;
   }
 
   
@@ -45,3 +46,29 @@ export interface login {
    email: string,
    password: string
   }
+
+export enum USER_ROLES {
+   NORMAL = "normal",
+   ADMIN = "admin",
+}
+
+export interface SignupInputDTO {
+   name: string,
+   email: string,
+   password: string
+ }
+ 
+ export interface SignupOutputDTO {
+   message: string,
+   token: string
+ }
+
+ export interface UserDB {
+   id: string,
+   name: string,
+   email: string,
+   password: string,
+   role: USER_ROLES,
+   created_at: string
+ }
+ 
