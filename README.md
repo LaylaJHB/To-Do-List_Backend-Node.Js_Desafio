@@ -178,6 +178,7 @@ Esse projeto foi desenvolvido com as seguintes ferramentas e tecnologias:
 * Knex
 * Cors
 * Express
+* Jest
 
 ---
 
