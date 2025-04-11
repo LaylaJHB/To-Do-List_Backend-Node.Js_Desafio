@@ -7,6 +7,8 @@ import { Authenticator } from "../services/authenticator";
 import { UserRepository } from "./UserRepository";
 import { UserNotFound } from "../error/UserErrors";
 import { UserDatabase } from "../data/mySQL/UserDatabase";
+import logger from "../utils/logger";
+
 
 
 
@@ -20,6 +22,7 @@ export class UserBusiness {
 
   public signup  = async (input: UserInputDTO) => {
      try {
+      logger.info(`Iniciando signup para email: ${input.email}`);
 
         const { name, email, password } = input
         if (
