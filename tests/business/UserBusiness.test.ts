@@ -100,7 +100,7 @@ await userBusiness.login({
   });
 
   test("should return an error when the password is incorrect", async () => {
-      expect.assertions(2);
+      expect.assertions(3);
       try {
 // Exemplo de chamada de login com o objeto LoginInputDTO
 await userBusiness.login({
@@ -109,8 +109,8 @@ await userBusiness.login({
 });
       } catch (error: any) {
           expect(error).toBeInstanceOf(CustomError);
-          expect(error.statusCode).toBe(401);
-          expect(error.message).toBe("invalidPassword");
+          expect(error.statusCode).toBe(400);
+          expect(error.message).toBe("Senha inválida");
       }
   });
 
