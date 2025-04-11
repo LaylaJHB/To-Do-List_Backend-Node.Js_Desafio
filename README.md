@@ -269,6 +269,11 @@ Comportamento ao tentar logar com uma senha incorreta.
 
 Validação do sucesso da autenticação ao fornecer credenciais válidas.
 
+👉 Resultados esperados
+
+<img width="559" alt="image" src="https://github.com/user-attachments/assets/7231e03d-180b-4724-8170-bdc08bcae527" />
+
+
 
 Como rodar os testes:
 
