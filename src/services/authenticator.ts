@@ -8,7 +8,7 @@ export abstract class Authenticator {
         const token = jwt.sign(
             {id},
             process.env.JWT_KEY as any,
-            {expiresIn: "1h"}
+            {expiresIn: process.env.JWT_EXPIRES_IN}
         )
         return token;
     }

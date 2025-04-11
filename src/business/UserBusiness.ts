@@ -1,7 +1,7 @@
 import { CustomError, InvalidEmail, InvalidPassword } from "../error/CustomError";
 import { UserInputDTO, LoginInputDTO, UpdateUserInput, UpdateUserInputDTO } from "../model/user";
 import { user } from "../model/user";
-import { generateId } from "../services/idGenerator";
+import { IdGenerator } from "../services/idGenerator";
 import { HashManager } from "../services/hashManager";
 import { Authenticator } from "../services/authenticator";
 import { UserRepository } from "./UserRepository";
@@ -11,10 +11,14 @@ import { UserDatabase } from "../data/mySQL/UserDatabase";
 
 
 export class UserBusiness {
-  signup: any;
-   constructor(private userDatabase: UserRepository){}
+   constructor(
+    private userDatabase: UserRepository,
+    private idGenerator: IdGenerator,
+    private authenticator: Authenticator,
+    private hashManager: HashManager
+  ){}
 
-  public createUser = async (input: UserInputDTO) => {
+  public signup  = async (input: UserInputDTO) => {
      try {
 
         const { name, email, password } = input
@@ -23,7 +27,7 @@ export class UserBusiness {
            !email ||
            !password
            ) {
-              throw new CustomError(400,'Preencha os campos "name", "email" e "password"')
+            throw new CustomError(422, "Missing input");
            }
 
         if(!email.includes("@")) {
@@ -34,29 +38,35 @@ export class UserBusiness {
            throw new InvalidPassword()
        }
            
-           const id: string = generateId()
+           const id: string = this.idGenerator.generate()
 
            const hashManager = new HashManager()
            const encryptedPassword = await hashManager.hash(input.password);
            
            const user: user = {
-              id,
-              name: input.name,
-              email: input.email,
-              password:encryptedPassword 
+             id,
+             name: input.name,
+             email: input.email,
+             password: encryptedPassword,
+             role: ""
            }
 
            await this.userDatabase.insertUser(user)
 
            const token = Authenticator.generateToken({id})
-           return token;
+           return {
+            id,
+            name: input.name,
+            email: input.email,
+            token
+          };
            
         } catch (error: any) {
            throw new CustomError(error.statusCode, error.message)
         }
   }
 
-  
+/*  
   public getUsers = async () => {
 
      try {
@@ -69,7 +79,7 @@ export class UserBusiness {
 
      }
   }
-
+*/
   public login = async (input: LoginInputDTO) => {
    try {
      const {email, password} = input;
@@ -93,8 +103,11 @@ export class UserBusiness {
      
      const user = await this.userDatabase.findByEmail(email)
 
-     const hashManager = new HashManager()
-     const passwordIsCorrect = hashManager.compare(password, user.password);
+     if (!user) {
+      throw new UserNotFound();
+    }
+
+     const passwordIsCorrect = await this.hashManager.compare(password, user.password);
 
      if (!user) {
        throw new UserNotFound()
@@ -105,10 +118,13 @@ export class UserBusiness {
      }
 
      const token = Authenticator.generateToken({id: user.id})
-     return token;
+     return { token };
      
    } catch (error:any) {
-     throw new CustomError(400, error.message);
+    if (error instanceof CustomError) {
+      throw error;
+    }
+    throw new CustomError(500, "Unexpected error");
    }
  }
 
@@ -160,4 +176,8 @@ export class UserBusiness {
   }
  };
  
+}
+
+function generateId(): string {
+  throw new Error("Function not implemented.");
 }
