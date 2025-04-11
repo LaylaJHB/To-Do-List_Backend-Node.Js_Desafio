@@ -244,10 +244,41 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 
 ---
 
-## 🧪Testes
+## 🧪Testes automatizados
+
+O projeto conta com testes automatizados usando Jest, visando garantir a qualidade, estabilidade e funcionamento correto das principais funcionalidades relacionadas à criação (signup) e autenticação (login) de usuários.
+
+⚙️ O que os testes cobrem:
 
 - [✅] Signup
 - [✅] Login
+<br>
+
+🔑 Signup (Cadastro de Usuário):
+
+     Verificação do comportamento da aplicação quando há ausência de algum dado obrigatório (nome, email ou senha).
+
+     Garantia que um usuário seja criado com sucesso ao receber dados válidos.
+
+🗝️ Login (Autenticação de Usuário):
+
+     Comportamento da aplicação ao tentar logar com um email inexistente.
+
+Comportamento ao tentar logar com uma senha incorreta.
+
+Validação do sucesso da autenticação ao fornecer credenciais válidas.
+
+
+Como rodar os testes:
+
+Para executar os testes, rode no terminal o seguinte comando na pasta do projeto backend:
+
+```
+npm test
+```
+<br>
+Os testes estão configurados para rodarem automaticamente via Jest, mostrando um relatório detalhado após a execução.
+
 
 ## 🔗Documentação
 
