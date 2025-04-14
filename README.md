@@ -6,6 +6,38 @@
   
 # Sistema de Gerenciamento de Tarefas
 
+## 🌟 Destaques deste projeto Backend:
+
+- ✅ Documentação interativa via Postman.
+- ✅ Arquitetura escalável baseada em 3 camadas (MSC)
+- ✅ Autenticação JWT protegendo rotas sensíveis
+- ✅ Testes unitários com Jest cobrindo a camada de serviços
+- ✅ Integração de logs estruturados com Pino
+- ✅ Validação de entradas e tratamento centralizado de erros (em progresso)
+- ✅ Projeto publicado em ambiente real via Render
+
+<!-- 
+## 🎯 Diferenciais Técnicos
+
+- ✅ Arquitetura escalável baseada em 3 camadas (MSC)
+- ✅ Autenticação JWT protegendo rotas sensíveis
+- ✅ Testes unitários com Jest cobrindo a camada de serviços
+- ✅ Uso de TypeScript com tipagem clara e consistente
+- ✅ Integração de logs estruturados com Pino
+- ✅ Validação de entradas e tratamento centralizado de erros (em progresso)
+- ✅ Estrutura preparada para CI/CD e deploy -->
+
+
+<!-- ## 🌟 Destaques deste projeto Backend:
+
+- ✅ Documentação interativa via Swagger (OpenAPI).
+- ✅ Autenticação segura JWT com Refresh tokens.
+- ✅ Sistema robusto de roles e permissões.
+- ✅ Testes unitários e testes de integração com Jest e Supertest.
+- ✅ Logs estruturados para monitoramento com Pino.
+- ✅ Projeto Dockerizado e publicado em ambiente real via Render/Railway.
+- ✅ CI/CD automatizado com GitHub Actions. -->
+
 ---
 
 ## 🕵Desafio
