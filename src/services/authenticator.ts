@@ -7,7 +7,7 @@ export abstract class Authenticator {
     static generateToken({id}: AuthenticationData):string {
         const token = jwt.sign(
             {id},
-            process.env.JWT_KEY as any,
+            process.env.JWT_KEY as string,
             {expiresIn: process.env.JWT_EXPIRES_IN}
         )
         return token;
@@ -17,7 +17,7 @@ export abstract class Authenticator {
         try {
             const payload = jwt.verify(
                 token,
-                process.env.JWT_KEY as any
+                process.env.JWT_KEY as string
             ) as AuthenticationData
             return payload;
             
