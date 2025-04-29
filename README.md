@@ -6,6 +6,8 @@
   
 # Sistema de Gerenciamento de Tarefas
 
+[![Build Status](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions/workflows/test.yml/badge.svg)](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions)
+
 ## 🌟 Destaques deste projeto Backend:
 
 - ✅ Documentação interativa via Postman.
@@ -187,6 +189,9 @@ Arquitetura de software em 3 camadas (3-tiers):
 * Controller: camada de interface, comunicação.
 * Bussiness: camada lógica, principal
 * Database: armazenamento e gerenciamento dos dados/informações
+
+![Arquitetura Detalhada]('')
+
 
 ---
 
