@@ -1,0 +1,26 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: 🟢 Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20 # use a versão que seu projeto utiliza
+
+      - name: 📦 Instalar dependências
+        run: npm install
+
+      - name: 🧪 Executar testes
+        run: npm test
