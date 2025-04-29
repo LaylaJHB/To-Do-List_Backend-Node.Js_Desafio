@@ -5,6 +5,7 @@ import { AuthenticationData } from "../model/user";
 export abstract class Authenticator {
 
     static generateToken({id}: AuthenticationData):string {
+        const expiresIn = process.env.JWT_EXPIRES_IN || "1h";
         const token = jwt.sign(
             {id},
             process.env.JWT_KEY as string,
