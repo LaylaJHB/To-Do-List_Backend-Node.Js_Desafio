@@ -15,6 +15,7 @@
 - ✅ Integração de logs estruturados com Pino
 - ✅ Validação de entradas e tratamento centralizado de erros (em progresso)
 - ✅ Projeto publicado em ambiente real via Render
+- ✅ CI/CD automatizado com GitHub Actions. --> Run Tests (em fase de melhoria)
 
 <!-- 
 ## 🎯 Diferenciais Técnicos
