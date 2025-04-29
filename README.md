@@ -36,7 +36,7 @@
 - ✅ Testes unitários e testes de integração com Jest e Supertest.
 - ✅ Logs estruturados para monitoramento com Pino.
 - ✅ Projeto Dockerizado e publicado em ambiente real via Render/Railway.
-- ✅ CI/CD automatizado com GitHub Actions. -->
+- ✅ CI/CD automatizado com GitHub Actions. --> Run Tests
 
 ---
 
