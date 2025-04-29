@@ -9,6 +9,7 @@ export abstract class Authenticator {
     const jwtKey = process.env.JWT_KEY || 'default_jwt_secret';
     const jwtExpiresIn = process.env.JWT_EXPIRES_IN || '1h';
 
+    // @ts-ignore: workaround para overload do jwt.sign no CI
     return jwt.sign(
       { id },
       jwtKey,
