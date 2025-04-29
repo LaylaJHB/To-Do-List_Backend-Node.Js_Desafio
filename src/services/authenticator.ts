@@ -12,6 +12,7 @@ export abstract class Authenticator {
             throw new Error("JWT_KEY not defined in environment variables");
         }
 
+        // @ts-ignore: require string expiresIn but we pass string like "1h"
         const token = jwt.sign(
             { id },               // payload correto (AuthenticationData)
             jwtKey,               // chave garantida (string)
