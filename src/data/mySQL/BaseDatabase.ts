@@ -6,7 +6,7 @@ dotenv.config()
 export class BaseDatabase {
 
 
-   protected static connection = knex({
+   public static connection = knex({
       client: "mysql2",
       connection: {
          host: process.env.DB_HOST,
