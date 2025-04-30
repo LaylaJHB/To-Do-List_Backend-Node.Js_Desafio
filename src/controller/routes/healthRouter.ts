@@ -1,17 +1,14 @@
-// src/routes/health.ts
 import { Router, Request, Response } from "express";
-import knex from "knex"; // ou sua instância de conexão
+import { BaseDatabase } from "../../data/mySQL/BaseDatabase";
 
 const router = Router();
 
-router.get("/health", async (req: Request, res: Response) => {
-  // 1) Verifica tempo de resposta do servidor
+router.get("/", async (req: Request, res: Response) => {
   const start = Date.now();
-
-  // 2) Verifica conexão com o DB
   let dbStatus = "up";
+
   try {
-    await knex.raw("SELECT 1"); // ou prisma.$queryRaw`SELECT 1`
+    await BaseDatabase.connection.raw("SELECT 1");
   } catch {
     dbStatus = "down";
   }
@@ -20,7 +17,7 @@ router.get("/health", async (req: Request, res: Response) => {
 
   res.status(200).json({
     status: "ok",
-    uptime: process.uptime(),       // segundos desde o start do processo
+    uptime: process.uptime(),
     latency: `${latency}ms`,
     database: dbStatus
   });
