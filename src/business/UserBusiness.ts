@@ -14,13 +14,20 @@ import logger from "../utils/logger";
 
 export class UserBusiness {
    constructor(
-    private userDatabase: UserRepository,
-    private idGenerator: IdGenerator,
-    private authenticator: Authenticator,
-    private hashManager: HashManager
+
+      private userDatabase: UserRepository,
+      private idGenerator: IdGenerator,
+      private authenticator: typeof Authenticator, // << Mude aqui
+      private hashManager: HashManager
+
+    
+    // private userDatabase: UserRepository,
+    // private idGenerator: IdGenerator,
+    // private authenticator: Authenticator,
+    // private hashManager: HashManager
   ){}
 
-  public signup  = async (input: UserInputDTO) => {
+  public createUser  = async (input: UserInputDTO) => {
      try {
       logger.info(`Iniciando signup para email: ${input.email}`);
 
@@ -69,7 +76,7 @@ export class UserBusiness {
         }
   }
 
-/*  
+
   public getUsers = async () => {
 
      try {
@@ -82,7 +89,7 @@ export class UserBusiness {
 
      }
   }
-*/
+
   public login = async (input: LoginInputDTO) => {
    try {
      const {email, password} = input;
