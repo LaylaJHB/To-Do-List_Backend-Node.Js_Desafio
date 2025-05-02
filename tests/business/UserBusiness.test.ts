@@ -3,27 +3,26 @@ import { CustomError } from "../../src/error/CustomError";
 import { USER_ROLES } from "../../src/model/user";
 import { HashGeneratorMock } from "../mocks/HashGeneratorMock";
 import { IdGeneratorMock } from "../mocks/IdGeneratorMock";
-import { TokenGeneratorMock } from "../mocks/TokenGeneratorMock";
 import { UserDatabaseMock } from "../mocks/UserDatabaseMock";
-import { UserRepositoryMock } from "../mocks/UserRepositoryMock";
 import { HashManager } from "../../src/services/hashManager";
-
+import { AuthenticatorMock } from "../mocks/AuthenticatorMock";
 
 const userBusiness = new UserBusiness(
     new UserDatabaseMock(),
     new IdGeneratorMock(),
-    new TokenGeneratorMock(),
+    AuthenticatorMock, // sem `new`, pois é uma classe estática
     new HashGeneratorMock() as unknown as HashManager 
   )
 
 // Teste com o mock diretamente
 //const userBusiness = new UserBusiness(new UserRepositoryMock());
-describe("Testando signup", () => {
-describe("UserBusiness - signup", () => {
+describe("INICIA TESTES UNITÁRIOS NA CAMADA BUSINESS", () => {
+describe("Teste01: Criar usuário (createUser)", () => {
     test("should return an error when the name is empty", async () => {
         expect.assertions(3);
         try {
-          await userBusiness.signup({
+          await userBusiness.createUser({
+            id: "mock-01-id",
             name: "", 
             email: "email@email.com", 
             password: "1234567", 
@@ -39,7 +38,8 @@ describe("UserBusiness - signup", () => {
     test("should return an error when the email is empty", async () => {
       expect.assertions(3);
       try {
-          await userBusiness.signup({
+          await userBusiness.createUser({
+            id: "mock-02-id",
             name: "John Doe", 
             email: "", 
             password: "1234567", 
@@ -56,7 +56,8 @@ describe("UserBusiness - signup", () => {
   test("should return an error when the password is empty", async () => {
       expect.assertions(3);
       try {
-          await userBusiness.signup({
+          await userBusiness.createUser({
+            id: "mock-03-id",
             name: "John Doe", 
             email: "email@email.com", 
             password: "", 
@@ -70,7 +71,8 @@ describe("UserBusiness - signup", () => {
   });
 
   test("should create a user successfully when valid inputs are provided", async () => {
-      const response = await userBusiness.signup({
+      const response = await userBusiness.createUser({
+        id: "mock-04-id",
         name: "John Doe", 
         email: "email@email.com", 
         password: "1234567", 
@@ -83,7 +85,7 @@ describe("UserBusiness - signup", () => {
 });
 });
 
-describe("UserBusiness - login", () => {
+describe("Teste 02: Login - login", () => {
   test("should return an error when the email is not registered", async () => {
       expect.assertions(3);
       try {
