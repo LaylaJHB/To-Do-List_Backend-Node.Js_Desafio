@@ -90,7 +90,7 @@ export class UserController {
     
       await this.userBusiness.deleteUserById(req.params.id, token as string)
 
-      res.status(201).send({ message: "Tarefa excluída com sucesso!" });
+      res.status(201).send({ message: "Usuário excluído com sucesso!" });
     } catch (error: any) {
       res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
     }
