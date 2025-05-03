@@ -81,12 +81,10 @@ export class UserBusiness {
 
      try {
         
-      
         return await this.userDatabase.getUsers();
         
      } catch (error: any) {
         throw new CustomError(error.statusCode, error.message)
-
      }
   }
 
@@ -191,6 +189,7 @@ export class UserBusiness {
  };
  
 }
+
 
 function generateId(): string {
   throw new Error("Function not implemented.");
