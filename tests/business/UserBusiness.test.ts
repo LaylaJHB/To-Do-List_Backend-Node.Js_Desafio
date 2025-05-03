@@ -132,6 +132,7 @@ await userBusiness.login({
 });
 
 describe("Teste 03: getUsers", () => {
+
   test("should return all users", async () => {
     const response = await userBusiness.getUsers();
     expect(response.length).toBeGreaterThanOrEqual(2);
@@ -147,6 +148,7 @@ describe("Teste 03: getUsers", () => {
 
 // getUserById
 describe("Teste 04: getUserById", () => {
+  
   test("should return the user when ID exists", async () => {
     const response = await userBusiness.getUserById("id-mock-fulano");
 

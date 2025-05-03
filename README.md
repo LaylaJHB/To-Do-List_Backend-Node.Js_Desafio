@@ -289,11 +289,13 @@ O projeto conta com testes automatizados usando Jest, visando garantir a qualida
 
 ⚙️ O que os testes cobrem:
 
-- [✅] Signup
+- [✅] createUser - Signup
 - [✅] Login
+- [✅] getUsers
+- [✅] getUserById
 <br>
 
-🔑 Signup (Cadastro de Usuário):
+🔑 createUser - Signup (Cadastro de Usuário):
 
      Verificação do comportamento da aplicação quando há ausência de algum dado obrigatório (nome, email ou senha).
 
@@ -307,11 +309,16 @@ Comportamento ao tentar logar com uma senha incorreta.
 
 Validação do sucesso da autenticação ao fornecer credenciais válidas.
 
+🗝️ getUsers (Buscar todos os usuários cadastrados)
+
+
+🗝️ getUserById (Buscar um usuário específico através do ID do seu cadastro):
+ 
+
 👉 Resultados esperados
 
-<img width="559" alt="image" src="https://github.com/user-attachments/assets/7231e03d-180b-4724-8170-bdc08bcae527" />
 
-
+![alt text](image.png)
 
 Como rodar os testes:
 
