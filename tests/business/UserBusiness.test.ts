@@ -7,6 +7,10 @@ import { UserDatabaseMock } from "../mocks/UserDatabaseMock";
 import { HashManager } from "../../src/services/hashManager";
 import { AuthenticatorMock } from "../mocks/AuthenticatorMock";
 
+jest.mock("../../src/data/mySQL/UserDatabase", () =>
+  require("../mocks/userDatabaseMockForNew")
+);
+
 const userBusiness = new UserBusiness(
     new UserDatabaseMock(),
     new IdGeneratorMock(),
@@ -16,8 +20,8 @@ const userBusiness = new UserBusiness(
 
 // Teste com o mock diretamente
 //const userBusiness = new UserBusiness(new UserRepositoryMock());
-describe("INICIA TESTES UNITÁRIOS NA CAMADA BUSINESS", () => {
-describe("Teste01: Criar usuário (createUser)", () => {
+describe("[INICIA TESTES UNITÁRIOS NA CAMADA BUSINESS]", () => {
+describe("Teste 01: Criar usuário (createUser)", () => {
     test("should return an error when the name is empty", async () => {
         expect.assertions(3);
         try {
@@ -124,5 +128,31 @@ await userBusiness.login({
       });
       
       expect(response).toHaveProperty("token");
+  });
+});
+
+// getUserById
+describe("Teste 03: getUserById", () => {
+  test("should return the user when ID exists", async () => {
+    const response = await userBusiness.getUserById("id-mock-fulano");
+
+    expect(response).toEqual({
+      id: "id-mock-fulano",
+      name: "Fulano",
+      email: "fulano@email.com",
+      password: "hash-mock-fulano", 
+      role: USER_ROLES.NORMAL,
+      created_at: expect.any(String)
+    });
+  });
+
+  test("should throw error if user is not found", async () => {
+    expect.assertions(2);
+    try {
+      await userBusiness.getUserById("non-existent-id");
+    } catch (error: any) {
+      expect(error).toBeInstanceOf(CustomError);
+      expect(error.message).toBe("Usuário não encontrado");
+    }
   });
 });

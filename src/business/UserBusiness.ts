@@ -143,6 +143,10 @@ export class UserBusiness {
      const userId = new UserDatabase();
      const result = await userId.getUserById(id);
 
+     if (!result) {
+      throw new UserNotFound();
+    }
+
      return result;
    } catch (error: any) {
      throw new CustomError(error.statusCode, error.message);
