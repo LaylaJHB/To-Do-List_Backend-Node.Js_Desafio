@@ -6,14 +6,13 @@ on:
   pull_request:
     branches: [main]
 
- env:
-  JWT_KEY: ${{ secrets.JWT_KEY }}
-  JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
-
-
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+
+    env:
+      JWT_KEY: ${{ secrets.JWT_KEY }}
+      JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
 
     steps:
       - name: 📥 Checkout do repositório
@@ -22,11 +21,10 @@ jobs:
       - name: 🟢 Instalar Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20 # use a versão que seu projeto utiliza
+          node-version: 20
 
       - name: 📦 Instalar dependências
         run: npm install
 
       - name: 🧪 Executar testes
         run: npm test
-
