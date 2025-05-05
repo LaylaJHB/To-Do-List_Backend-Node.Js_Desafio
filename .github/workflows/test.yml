@@ -26,5 +26,21 @@ jobs:
       - name: 📦 Instalar dependências
         run: npm install
 
+      - name: 🔍 Verificar se variáveis de ambiente estão definidas
+        run: |
+          if [ -z "$JWT_KEY" ]; then
+            echo "❌ ERRO: A variável JWT_KEY está vazia ou não foi definida."
+            echo "💡 Dica: vá em Settings > Secrets > Actions e adicione o secret JWT_KEY."
+            exit 1
+          fi
+
+          if [ -z "$JWT_EXPIRES_IN" ]; then
+            echo "❌ ERRO: A variável JWT_EXPIRES_IN está vazia ou não foi definida."
+            echo "💡 Dica: vá em Settings > Secrets > Actions e adicione o secret JWT_EXPIRES_IN."
+            exit 1
+          fi
+
+          echo "✅ Secrets verificados com sucesso. Continuando com os testes..."
+
       - name: 🧪 Executar testes
         run: npm test
