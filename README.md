@@ -8,6 +8,8 @@
 
 [![Build Status](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions/workflows/test.yml/badge.svg)](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions)
 
+O sistema desenvolvido possui arquitetura de 3 camadas e autenticação JWT. É capaz de: cadastrar usuário, autenticar usuário (login), criar tarefa, atualizar tarefa, deletar tarefa, entre outros. O sistema conta com filtros de busca, ordenação, paginação, logs e com testes automatizados com Jest.
+
 ## 🌟 Destaques deste projeto Backend:
 
 - ✅ Documentação interativa via Postman.
@@ -19,91 +21,70 @@
 - ✅ Projeto publicado em ambiente real via Render
 - ✅ CI/CD automatizado com GitHub Actions. --> Run Tests (em fase de melhoria)
 
-<!-- 
-## 🎯 Diferenciais Técnicos
+---
 
-- ✅ Arquitetura escalável baseada em 3 camadas (MSC)
-- ✅ Autenticação JWT protegendo rotas sensíveis
-- ✅ Testes unitários com Jest cobrindo a camada de serviços
-- ✅ Uso de TypeScript com tipagem clara e consistente
-- ✅ Integração de logs estruturados com Pino
-- ✅ Validação de entradas e tratamento centralizado de erros (em progresso)
-- ✅ Estrutura preparada para CI/CD e deploy -->
+## 🛠️ Stack
 
-
-<!-- ## 🌟 Destaques deste projeto Backend:
-
-- ✅ Documentação interativa via Swagger (OpenAPI).
-- ✅ Autenticação segura JWT com Refresh tokens.
-- ✅ Sistema robusto de roles e permissões.
-- ✅ Testes unitários e testes de integração com Jest e Supertest.
-- ✅ Logs estruturados para monitoramento com Pino.
-- ✅ Projeto Dockerizado e publicado em ambiente real via Render/Railway.
-- ✅ CI/CD automatizado com GitHub Actions. --> Run Tests
+- Backend
 
 ---
 
-## 🕵Desafio
+## 👨‍💻 Tecnologias
 
-Desenvolvimento de API CRUD
+Esse projeto foi desenvolvido com as seguintes ferramentas e tecnologias:
 
----
-
-## 🧑‍🚀Tema
-
-Sistema de Gerenciamento de Tarefas
-
----
-
-## 🧭Status
-
-- Projeto: feito e aprovado
-- Resultado da Seleção para vaga Backend Developer II: aprovada (selecionada para a vaga)
+* Node.js
+* Typescript
+* SQL
+* MySQL
+* API
+* Postman
+* Knex
+* Cors
+* Express
+* Jest
 
 ---
 
-## Status do Projeto após aprovação
+## 🏛️ Arquitetura
 
-- ⏳ Adicionando features
+Arquitetura de software em 3 camadas (3-tiers):
 
----
-
-## 🎯Objetivo do Projeto
-
-Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento em um ambiente realista. A API será um sistema de gerenciamento de tarefas.
-
-- [✅] Cadastro de Tarefas: Cada tarefa deve conter um título, descrição e status (pendente, em andamento, concluída).
-  Utilize um banco de dados de sua escolha: SQL (por exemplo, MySQL) ou não-relacional (por exemplo, MongoDB).título, descrição e status (pendente, em andamento, concluída).
-- [✅] Listagem de Tarefas: Os usuários devem poder listar todas as tarefas cadastradas.
-- [✅] Atualização de Tarefas: Os usuários devem poder atualizar detalhes e status de uma tarefa existente.
-- [✅] Exclusão de Tarefas: Os usuários devem poder excluir uma tarefa.
+* Controller: camada de interface, comunicação.
+* Bussiness: camada lógica, principal
+* Database: armazenamento e gerenciamento dos dados/informações
 
 ---
 
-## ☑️Requisitos Técnicos
+## 📈 Diagrama de Entidade de Relacionamento (ERD)
 
-- [✅] Utilize Node.js e Express para criar a API.
-- [✅] Organize o código utilizando o padrão MSC (Model-Service-Controller).
-- [✅] Integre autenticação JWT para proteger as rotas de atualização e exclusão de tarefas.
-- [✅] Utilize um banco de dados de sua escolha: SQL (por exemplo, SQLite, PostgreSQL) ou não-relacional (por exemplo, Firebase Realtime Database).
-- [✅] Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
-- [✅] Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
+![2](https://github.com/user-attachments/assets/de5ebc9c-488a-4078-babe-b57e4a50f746)
 
 ---
 
-## ☑️Critérios de Avaliação
+## 💡Estrutura de Dados
 
-O critério predominante neste desafio é a qualidade do código e a organização do projeto. Será avaliado como você segue as melhores práticas, mantém um código limpo e estruturado, e organiza a lógica de acordo com o padrão MSC.
+**Para esse projeto são modelados duas entidades:**
+
+- usuário (user)
+- tarefa (task).
+
+Cada uma com os seguintes dados:
+
+
+| tarefa (task)                                       | usuário (user) | 
+| ----------------------------------------------------| -------------- |
+| • id                                                | • id           |
+| • title                                             | • name         |
+| • description                                       | • email        |
+| • deadline                                          | • password     |
+| • status:*"pendente, "em_andamento e "concluída"*   | -              |
+| • created_at                                        | -              |
+| • authorId                                          | -              |
 
 ---
 
-## ☑️Entrega
-
-Compartilhe o código-fonte do projeto através de um repositório no GitHub. Certifique-se de incluir um arquivo README que explique como configurar e executar o projeto localmente, instruções para instalação de dependências e detalhes sobre as rotas da API. O critério predominante neste desafio é a qualidade do código e a organização do projeto. Será avaliado como você segue as melhores práticas, mantém um código limpo e estruturado, e organiza a lógica de acordo com o padrão MSC.
-
----
-
-## ⭕Endpoints
+## ⭕ Endpoints
 
 Todos os endpoints apresentados possuem exemplo de requisição e de resposta da requisição. Acesse a documentação para mais informações.
 
@@ -125,8 +106,77 @@ Todos os endpoints apresentados possuem exemplo de requisição e de resposta da
 - Buscar tarefas filtradas por status
 - Buscar tarefas filtradas por título e status
 - Buscar tarefa específica pelo "id"
+  
+## 🧪 Testes automatizados
 
-## 🕵Resultados em video
+O projeto conta com testes automatizados usando Jest, visando garantir a qualidade, estabilidade e funcionamento correto das principais funcionalidades relacionadas à criação (signup), autenticação (login) de usuários e demais funcionalidades.
+
+## Testes
+
+Use os comandos abaixo
+
+```bash
+# instalar dependências
+npm ci
+
+# rodar todos os testes uma única vez
+npm test
+
+# gerar relatório de cobertura (HTML + texto)
+npm run test:coverage
+
+# modo watch: monitora alterações e executa apenas
+# os testes impactados durante o desenvolvimento
+npm run test:watch
+```
+ <br>
+⚙️ O que os testes cobrem:
+
+<br>
+
+- [✅] createUser - Signup
+- [✅] Login - autenticação
+- [✅] getUsers - Busca todos os usuários
+- [✅] getUserById - Busca usuário por id
+
+ <br>
+
+🔑 createUser - Signup (Cadastro de Usuário):
+
+     - Verificação do comportamento da aplicação quando há ausência de algum dado obrigatório (nome, email ou senha).
+
+     - Garantia que um usuário seja criado com sucesso ao receber dados válidos.
+  <br>
+
+🗝️ Login (Autenticação de Usuário):
+
+     - Comportamento da aplicação ao tentar logar com um email inexistente.
+
+     - Comportamento ao tentar logar com uma senha incorreta.
+
+     - Validação do sucesso da autenticação ao fornecer credenciais válidas.
+  <br>
+
+🗝️ getUsers (Buscar todos os usuários cadastrados)
+
+     - Retorna todos os usuários
+
+  <br>
+
+🗝️ getUserById (Buscar um usuário específico através do ID do seu cadastro):
+
+    - Retorna o usuário quando encontra o id
+
+    - Retorna erro quando o usuário não é encontrado
+ 
+  <br>
+
+👉 Resultados esperados
+
+
+![alt text](image.png)
+
+## 🕵 Resultados em video
 
 ## Usuários
 
@@ -176,71 +226,6 @@ https://github.com/user-attachments/assets/c18351ea-08a5-4026-948d-f78a1978ccbf
 
 
 
-## 🛠Stack
-
-- Backend
-
----
-
-## 🛠Arquitetura
-
-Arquitetura de software em 3 camadas (3-tiers):
-
-* Controller: camada de interface, comunicação.
-* Bussiness: camada lógica, principal
-* Database: armazenamento e gerenciamento dos dados/informações
-
-![Arquitetura Detalhada]('')
-
-
----
-
-
-## 📈Diagrama de Entidade de Relacionamento (ERD)
-
-![2](https://github.com/user-attachments/assets/de5ebc9c-488a-4078-babe-b57e4a50f746)
-
-
----
-
-## 🛠Tecnologias
-
-Esse projeto foi desenvolvido com as seguintes ferramentas e tecnologias:
-
-* Node.js
-* Typescript
-* SQL
-* MySQL
-* API
-* Postman
-* Knex
-* Cors
-* Express
-* Jest
-
----
-
-## 💡Estrutura de Dados
-
-**Para esse projeto são modelados duas entidades:**
-
-- usuário (user)
-- tarefa (task).
-
-Cada uma com os seguintes dados:
-
-
-| tarefa (task)                                       | usuário (user) |
-| ----------------------------------------------------- | ----------------- |
-| • id                                               | • id           |
-| • title                                            | • name         |
-| • description                                      | • email        |
-| • deadline                                         | • password     |
-| • status:*"pendente, "em_andamento e "concluída"* | -               |
-| • created_at                                       | -               |
-| • authorId                                         | -               |
-
----
 
 ### 👤 Usuário
 
@@ -283,82 +268,22 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 
 ---
 
-## 🧪Testes automatizados
-
-O projeto conta com testes automatizados usando Jest, visando garantir a qualidade, estabilidade e funcionamento correto das principais funcionalidades relacionadas à criação (signup), autenticação (login) de usuários e demais funcionalidades.
-
-## Testes
-
-Use os comandos abaixo
-
-```bash
-# instalar dependências
-npm ci
-
-# rodar todos os testes uma única vez
-npm test
-
-# gerar relatório de cobertura (HTML + texto)
-npm run test:coverage
-
-# modo watch: monitora alterações e executa apenas
-# os testes impactados durante o desenvolvimento
-npm run test:watch
-```
-
-⚙️ O que os testes cobrem:
-
-- [✅] createUser - Signup
-- [✅] Login - autenticação
-- [✅] getUsers - Busca todos os usuários
-- [✅] getUserById - Busca usuário por id
-<br>
-
-🔑 createUser - Signup (Cadastro de Usuário):
-
-     - Verificação do comportamento da aplicação quando há ausência de algum dado obrigatório (nome, email ou senha).
-
-     - Garantia que um usuário seja criado com sucesso ao receber dados válidos.
-
-🗝️ Login (Autenticação de Usuário):
-
-     - Comportamento da aplicação ao tentar logar com um email inexistente.
-
-     - Comportamento ao tentar logar com uma senha incorreta.
-
-     - Validação do sucesso da autenticação ao fornecer credenciais válidas.
-
-🗝️ getUsers (Buscar todos os usuários cadastrados)
-
-     - Retorna todos os usuários
 
 
-🗝️ getUserById (Buscar um usuário específico através do ID do seu cadastro):
-
-    - Retorna o usuário quando encontra o id
-
-    - Retorna erro quando o usuário não é encontrado
- 
-
-👉 Resultados esperados
-
-
-![alt text](image.png)
-
-## 🔗Documentação
+## 🔗 Documentação
 
 - **Link da Documentação no Postman:** https://documenter.getpostman.com/view/22349688/2s9YBxZbXr
 
 ---
 
 
-## 🛠Próximos passos
+## 🛠 Próximos passos
 
 
 
 ---
 
-## 🛰Rodando o Projeto
+## 🛰 Rodando o Projeto
 
 Para Rodar o projeto, siga as seguintes etapas :
 
@@ -408,15 +333,82 @@ Para Rodar o projeto, siga as seguintes etapas :
     npm run migrate:rollback
     ```
 
+## 🕵 Desafio
+  <details>
+    <summary>O início desse projeto faz parte de um desafio para uma vaga backend. As informações referentes ao desafio estão aqui nesse toggle. Após o desafio, venho implementando novas features no projeto, as quais poderão ver mais a frente.
+    </summary>
+---
+
+Desenvolvimento de API CRUD
+
+---
+
+## 🧑‍🚀Tema
+
+Sistema de Gerenciamento de Tarefas
+
+---
+
+
+## 🧭Status
+
+- Projeto: feito e aprovado
+- Resultado da Seleção para vaga Backend Developer II: aprovada (selecionada para a vaga)
+
+---
+
+## Status do Projeto após aprovação
+
+- ⏳ Adicionando features
+
+---
+
+## 🎯Objetivo do Projeto
+
+Criar uma API RESTful completa, demonstrando sua capacidade de desenvolvimento em um ambiente realista. A API será um sistema de gerenciamento de tarefas.
+
+- [✅] Cadastro de Tarefas: Cada tarefa deve conter um título, descrição e status (pendente, em andamento, concluída).
+  Utilize um banco de dados de sua escolha: SQL (por exemplo, MySQL) ou não-relacional (por exemplo, MongoDB).título, descrição e status (pendente, em andamento, concluída).
+- [✅] Listagem de Tarefas: Os usuários devem poder listar todas as tarefas cadastradas.
+- [✅] Atualização de Tarefas: Os usuários devem poder atualizar detalhes e status de uma tarefa existente.
+- [✅] Exclusão de Tarefas: Os usuários devem poder excluir uma tarefa.
+
+---
+
+## ☑️Requisitos Técnicos
+
+- [✅] Utilize Node.js e Express para criar a API.
+- [✅] Organize o código utilizando o padrão MSC (Model-Service-Controller).
+- [✅] Integre autenticação JWT para proteger as rotas de atualização e exclusão de tarefas.
+- [✅] Utilize um banco de dados de sua escolha: SQL (por exemplo, SQLite, PostgreSQL) ou não-relacional (por exemplo, Firebase Realtime Database).
+- [✅] Implemente endpoints de busca e filtro para as tarefas (por título, por status, etc.).
+- [✅] Forneça documentação clara para a API, incluindo detalhes sobre as rotas, parâmetros e respostas. (Opcional)
+
+---
+
+## ☑️Critérios de Avaliação
+
+O critério predominante neste desafio é a qualidade do código e a organização do projeto. Será avaliado como você segue as melhores práticas, mantém um código limpo e estruturado, e organiza a lógica de acordo com o padrão MSC.
+
+---
+
+## ☑️Entrega
+
+Compartilhe o código-fonte do projeto através de um repositório no GitHub. Certifique-se de incluir um arquivo README que explique como configurar e executar o projeto localmente, instruções para instalação de dependências e detalhes sobre as rotas da API. O critério predominante neste desafio é a qualidade do código e a organização do projeto. Será avaliado como você segue as melhores práticas, mantém um código limpo e estruturado, e organiza a lógica de acordo com o padrão MSC.
+
+---
+
+
+</details>
   
 ---
 
-## 🧑‍🚀Autor
+## 🧑‍🚀 Autor
 
 - Layla Janaína Hissa Borges
 
 ---
 
-## 📝Sobre a Licença
+## 📝 Sobre a Licença
 
 Este projeto esta sobe a licença [MIT](./LICENSE).
