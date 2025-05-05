@@ -6,7 +6,7 @@ export abstract class Authenticator {
 
   static generateToken({ id }: AuthenticationData): string {
     // fallback para testes/CI se a variável não estiver definida
-    const jwtKey = process.env.JWT_KEY || 'default_jwt_secret';
+    const jwtKey = process.env.JWT_KEY //|| 'default_jwt_secret';
     const jwtExpiresIn = process.env.JWT_EXPIRES_IN || '1h';
 
     // @ts-ignore: workaround para overload do jwt.sign no CI
@@ -22,7 +22,7 @@ export abstract class Authenticator {
     try {
       const payload = jwt.verify(
         token,
-        process.env.JWT_KEY || 'default_jwt_secret'
+        process.env.JWT_KEY// || 'default_jwt_secret'
       ) as AuthenticationData;
       return payload;
     } catch {

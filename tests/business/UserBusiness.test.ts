@@ -3,27 +3,30 @@ import { CustomError } from "../../src/error/CustomError";
 import { USER_ROLES } from "../../src/model/user";
 import { HashGeneratorMock } from "../mocks/HashGeneratorMock";
 import { IdGeneratorMock } from "../mocks/IdGeneratorMock";
-import { TokenGeneratorMock } from "../mocks/TokenGeneratorMock";
 import { UserDatabaseMock } from "../mocks/UserDatabaseMock";
-import { UserRepositoryMock } from "../mocks/UserRepositoryMock";
 import { HashManager } from "../../src/services/hashManager";
+import { AuthenticatorMock } from "../mocks/AuthenticatorMock";
 
+jest.mock("../../src/data/mySQL/UserDatabase", () =>
+  require("../mocks/userDatabaseMockForNew")
+);
 
 const userBusiness = new UserBusiness(
     new UserDatabaseMock(),
     new IdGeneratorMock(),
-    new TokenGeneratorMock(),
+    AuthenticatorMock, // sem `new`, pois é uma classe estática
     new HashGeneratorMock() as unknown as HashManager 
   )
 
 // Teste com o mock diretamente
 //const userBusiness = new UserBusiness(new UserRepositoryMock());
-describe("Testando signup", () => {
-describe("UserBusiness - signup", () => {
+describe("[INICIA TESTES UNITÁRIOS NA CAMADA BUSINESS]", () => {
+describe("Teste 01: Criar usuário (createUser)", () => {
     test("should return an error when the name is empty", async () => {
         expect.assertions(3);
         try {
-          await userBusiness.signup({
+          await userBusiness.createUser({
+            id: "mock-01-id",
             name: "", 
             email: "email@email.com", 
             password: "1234567", 
@@ -39,7 +42,8 @@ describe("UserBusiness - signup", () => {
     test("should return an error when the email is empty", async () => {
       expect.assertions(3);
       try {
-          await userBusiness.signup({
+          await userBusiness.createUser({
+            id: "mock-02-id",
             name: "John Doe", 
             email: "", 
             password: "1234567", 
@@ -56,7 +60,8 @@ describe("UserBusiness - signup", () => {
   test("should return an error when the password is empty", async () => {
       expect.assertions(3);
       try {
-          await userBusiness.signup({
+          await userBusiness.createUser({
+            id: "mock-03-id",
             name: "John Doe", 
             email: "email@email.com", 
             password: "", 
@@ -70,7 +75,8 @@ describe("UserBusiness - signup", () => {
   });
 
   test("should create a user successfully when valid inputs are provided", async () => {
-      const response = await userBusiness.signup({
+      const response = await userBusiness.createUser({
+        id: "mock-04-id",
         name: "John Doe", 
         email: "email@email.com", 
         password: "1234567", 
@@ -83,7 +89,7 @@ describe("UserBusiness - signup", () => {
 });
 });
 
-describe("UserBusiness - login", () => {
+describe("Teste 02: Login - login", () => {
   test("should return an error when the email is not registered", async () => {
       expect.assertions(3);
       try {
@@ -122,5 +128,47 @@ await userBusiness.login({
       });
       
       expect(response).toHaveProperty("token");
+  });
+});
+
+describe("Teste 03: getUsers", () => {
+
+  test("should return all users", async () => {
+    const response = await userBusiness.getUsers();
+    expect(response.length).toBeGreaterThanOrEqual(2);
+    expect(response).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ name: "Fulano" }),
+        expect.objectContaining({ name: "Astrodev" })
+      ])
+    );
+  });
+});
+
+
+// getUserById
+describe("Teste 04: getUserById", () => {
+  
+  test("should return the user when ID exists", async () => {
+    const response = await userBusiness.getUserById("id-mock-fulano");
+
+    expect(response).toEqual({
+      id: "id-mock-fulano",
+      name: "Fulano",
+      email: "fulano@email.com",
+      password: "hash-mock-fulano", 
+      role: USER_ROLES.NORMAL,
+      created_at: expect.any(String)
+    });
+  });
+
+  test("should throw error if user is not found", async () => {
+    expect.assertions(2);
+    try {
+      await userBusiness.getUserById("non-existent-id");
+    } catch (error: any) {
+      expect(error).toBeInstanceOf(CustomError);
+      expect(error.message).toBe("Usuário não encontrado");
+    }
   });
 });

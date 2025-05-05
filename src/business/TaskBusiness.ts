@@ -1,4 +1,4 @@
-import { generateId } from '../services/idGenerator';
+import  {IdGenerator}  from '../services/idGenerator';
 import { Authenticator } from '../services/authenticator';
 import {
   UpdateTaskInputDTO,
@@ -31,18 +31,18 @@ export class TaskBusiness {
         );
       }
 
-      const id: string = generateId();
+      const id = new IdGenerator();
 
       const authorId = Authenticator.getToken(token).id;
 
       const task: task = {
-        id,
         title,
         description,
         deadline,
         status,
         created_at: new Date(),
         authorId,
+        id: ''
       };
 
       await this.taskDatabase.createTask(task);

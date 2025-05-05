@@ -1,6 +1,6 @@
 // /tests/mocks/UserDatabaseMock.ts
 import { BaseDatabase } from "../../src/data/mySQL/BaseDatabase";
-import { USER_ROLES, UserDB } from "../../src/model/user";
+import { UpdateUserInput, USER_ROLES, UserDB } from "../../src/model/user";
 
 const usersMock: UserDB[] = [
   {
@@ -29,20 +29,32 @@ export class UserDatabaseMock extends BaseDatabase {
     this.users = [...usersMock]; // começa com usuários mockados
   }
 
-  // Insere um novo usuário no array de mocks
   public async insertUser(newUserDB: UserDB): Promise<void> {
     this.users.push(newUserDB);
   }
 
-// UserDatabaseMock.ts
-public async findByEmail(email: string): Promise<UserDB | null> {
+  public async findByEmail(email: string): Promise<UserDB | null> {
     const user = this.users.find(u => u.email === email);
     return user || null;
   }
 
-  // (opcional) se quiser testar busca por id
   public async getUserById(id: string): Promise<UserDB | null> {
-    const user = this.users.find((u) => u.id === id);
+    const user = this.users.find(u => u.id === id);
     return user || null;
+  }
+
+  public async getUsers(): Promise<UserDB[]> {
+    return this.users;
+  }
+
+  async updateUserById(user: UpdateUserInput, token: string): Promise<any> {
+    const index = this.users.findIndex(u => u.id === user.id);
+    if (index !== -1) {
+      this.users[index] = { ...this.users[index], ...user };
+    }
+  }
+
+  public async deleteUserById(id: string): Promise<void> {
+    this.users = this.users.filter(u => u.id !== id);
   }
 }

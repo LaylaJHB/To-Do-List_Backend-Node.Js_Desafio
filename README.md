@@ -285,44 +285,65 @@ Os endpoints referentes a tarefas devem ter seu "body" preenchidos na requisiç�
 
 ## 🧪Testes automatizados
 
-O projeto conta com testes automatizados usando Jest, visando garantir a qualidade, estabilidade e funcionamento correto das principais funcionalidades relacionadas à criação (signup) e autenticação (login) de usuários.
+O projeto conta com testes automatizados usando Jest, visando garantir a qualidade, estabilidade e funcionamento correto das principais funcionalidades relacionadas à criação (signup), autenticação (login) de usuários e demais funcionalidades.
+
+## Testes
+
+Use os comandos abaixo
+
+```bash
+# instalar dependências
+npm ci
+
+# rodar todos os testes uma única vez
+npm test
+
+# gerar relatório de cobertura (HTML + texto)
+npm run test:coverage
+
+# modo watch: monitora alterações e executa apenas
+# os testes impactados durante o desenvolvimento
+npm run test:watch
+```
 
 ⚙️ O que os testes cobrem:
 
-- [✅] Signup
-- [✅] Login
+- [✅] createUser - Signup
+- [✅] Login - autenticação
+- [✅] getUsers - Busca todos os usuários
+- [✅] getUserById - Busca usuário por id
 <br>
 
-🔑 Signup (Cadastro de Usuário):
+🔑 createUser - Signup (Cadastro de Usuário):
 
-     Verificação do comportamento da aplicação quando há ausência de algum dado obrigatório (nome, email ou senha).
+     - Verificação do comportamento da aplicação quando há ausência de algum dado obrigatório (nome, email ou senha).
 
-     Garantia que um usuário seja criado com sucesso ao receber dados válidos.
+     - Garantia que um usuário seja criado com sucesso ao receber dados válidos.
 
 🗝️ Login (Autenticação de Usuário):
 
-     Comportamento da aplicação ao tentar logar com um email inexistente.
+     - Comportamento da aplicação ao tentar logar com um email inexistente.
 
-Comportamento ao tentar logar com uma senha incorreta.
+     - Comportamento ao tentar logar com uma senha incorreta.
 
-Validação do sucesso da autenticação ao fornecer credenciais válidas.
+     - Validação do sucesso da autenticação ao fornecer credenciais válidas.
+
+🗝️ getUsers (Buscar todos os usuários cadastrados)
+
+     - Retorna todos os usuários
+
+
+🗝️ getUserById (Buscar um usuário específico através do ID do seu cadastro):
+
+    - Retorna o usuário quando encontra o id
+
+    - Retorna erro quando o usuário não é encontrado
+ 
 
 👉 Resultados esperados
 
-<img width="559" alt="image" src="https://github.com/user-attachments/assets/7231e03d-180b-4724-8170-bdc08bcae527" />
 
-
-
-Como rodar os testes:
-
-Para executar os testes, rode no terminal o seguinte comando na pasta do projeto backend:
-
-```
-npm test
-```
-<br>
-Os testes estão configurados para rodarem automaticamente via Jest, mostrando um relatório detalhado após a execução.
-
+![alt text](image.png)
 
 ## 🔗Documentação
 

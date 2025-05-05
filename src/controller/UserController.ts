@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { UserInputDTO, LoginInputDTO, deleteUserInputDTO, UpdateUserInputDTO } from "../model/user";
+import { UserInputDTO, LoginInputDTO, deleteUserInputDTO, UpdateUserInputDTO, USER_ROLES } from "../model/user";
 import { data } from "jquery";
 
 export class UserController {
@@ -8,13 +8,14 @@ export class UserController {
 
   public createUser = async (req: Request, res: Response) => {
     try {
-      const { id, name, email, password } = req.body;
+      const { id, name, email, password, role } = req.body;
 
       const input: UserInputDTO = {
         id,
         name,
         email,
-        password
+        password,
+        role
       };
       
       const token = await this.userBusiness.createUser(input);
@@ -89,7 +90,7 @@ export class UserController {
     
       await this.userBusiness.deleteUserById(req.params.id, token as string)
 
-      res.status(201).send({ message: "Tarefa excluída com sucesso!" });
+      res.status(201).send({ message: "Usuário excluído com sucesso!" });
     } catch (error: any) {
       res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
     }

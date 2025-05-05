@@ -14,13 +14,20 @@ import logger from "../utils/logger";
 
 export class UserBusiness {
    constructor(
-    private userDatabase: UserRepository,
-    private idGenerator: IdGenerator,
-    private authenticator: Authenticator,
-    private hashManager: HashManager
+
+      private userDatabase: UserRepository,
+      private idGenerator: IdGenerator,
+      private authenticator: typeof Authenticator, // << Mude aqui
+      private hashManager: HashManager
+
+    
+    // private userDatabase: UserRepository,
+    // private idGenerator: IdGenerator,
+    // private authenticator: Authenticator,
+    // private hashManager: HashManager
   ){}
 
-  public signup  = async (input: UserInputDTO) => {
+  public createUser  = async (input: UserInputDTO) => {
      try {
       logger.info(`Iniciando signup para email: ${input.email}`);
 
@@ -69,20 +76,18 @@ export class UserBusiness {
         }
   }
 
-/*  
+
   public getUsers = async () => {
 
      try {
         
-      
         return await this.userDatabase.getUsers();
         
      } catch (error: any) {
         throw new CustomError(error.statusCode, error.message)
-
      }
   }
-*/
+
   public login = async (input: LoginInputDTO) => {
    try {
      const {email, password} = input;
@@ -136,6 +141,10 @@ export class UserBusiness {
      const userId = new UserDatabase();
      const result = await userId.getUserById(id);
 
+     if (!result) {
+      throw new UserNotFound();
+    }
+
      return result;
    } catch (error: any) {
      throw new CustomError(error.statusCode, error.message);
@@ -180,6 +189,7 @@ export class UserBusiness {
  };
  
 }
+
 
 function generateId(): string {
   throw new Error("Function not implemented.");
