@@ -4,43 +4,39 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    branches: [main]          # <- Só funciona se o PR NÃO for de fork
+    # se seus PRs vêm de fork, troque por:
+    # pull_request_target:
+    #   branches: [main]
 
 jobs:
   run-tests:
     runs-on: ubuntu-latest
 
-    env:
+    env:                      # << secrets permitidos aqui
       JWT_KEY: ${{ secrets.JWT_KEY }}
       JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
 
     steps:
-      - name: 📥 Checkout do repositório
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: 🟢 Instalar Node.js
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      - name: 📦 Instalar dependências
-        run: npm install
-
-      - name: 🔍 Verificar se variáveis de ambiente estão definidas
+      - name: Verify secrets
         run: |
-          if [ -z "$JWT_KEY" ]; then
-            echo "❌ ERRO: A variável JWT_KEY está vazia ou não foi definida."
-            echo "💡 Dica: vá em Settings > Secrets > Actions e adicione o secret JWT_KEY."
+          echo "JWT_KEY=${JWT_KEY:-<empty>}"
+          echo "JWT_EXPIRES_IN=${JWT_EXPIRES_IN:-<empty>}"
+          if [ -z "$JWT_KEY" ] || [ -z "$JWT_EXPIRES_IN" ]; then
+            echo "❌ Secrets ausentes — verifique Settings > Secrets."
             exit 1
           fi
 
-          if [ -z "$JWT_EXPIRES_IN" ]; then
-            echo "❌ ERRO: A variável JWT_EXPIRES_IN está vazia ou não foi definida."
-            echo "💡 Dica: vá em Settings > Secrets > Actions e adicione o secret JWT_EXPIRES_IN."
-            exit 1
-          fi
+      - name: Install deps
+        run: npm ci
 
-          echo "✅ Secrets verificados com sucesso. Continuando com os testes..."
-
-      - name: 🧪 Executar testes
+      - name: Run tests
         run: npm test
