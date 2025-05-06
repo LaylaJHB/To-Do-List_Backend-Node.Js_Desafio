@@ -6,8 +6,23 @@
   
 # Sistema de Gerenciamento de Tarefas
 
+
+
 > **CI automatizada:** a cada *push* ou Pull Request, os testes são executados via GitHub Actions.
->[![Run Tests](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions/workflows/test.yml)
+>
+> *Selo verde = testes unitários executados com sucesso; aplicação considerada estável.*
+> 
+> [![Run Tests](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions/workflows/test.yml)
+>
+
+
+
+
+
+<!-- linha em branco encerra -->
+
+
+
 <br>
 
 <!-- linha abaixo deve ficar 100 % vazia – encerra o blockquote -->
