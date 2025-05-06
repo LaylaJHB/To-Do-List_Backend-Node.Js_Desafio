@@ -6,7 +6,11 @@
   
 # Sistema de Gerenciamento de Tarefas
 
-[![Build Status](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions/workflows/test.yml/badge.svg)](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions)
+> **CI automatizada:** a cada *push* ou Pull Request, os testes são executados via GitHub Actions.
+>[![Run Tests](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/LaylaJHB/To-Do-List_Backend-Node.Js_Desafio/actions/workflows/test.yml)
+<br>
+
+<!-- linha abaixo deve ficar 100 % vazia – encerra o blockquote -->
 
 O sistema desenvolvido possui arquitetura de 3 camadas e autenticação JWT. É capaz de: cadastrar usuário, autenticar usuário (login), criar tarefa, atualizar tarefa, deletar tarefa, entre outros. O sistema conta com filtros de busca, ordenação, paginação, logs e com testes automatizados com Jest.
 
