@@ -25,7 +25,7 @@ function SignupForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/signup', { name, email, password });
+      await api.post('/user/create', { name, email, password });
       alert('Usuário cadastrado com sucesso!');
     } catch (error) {
       alert('Erro ao cadastrar usuário');
