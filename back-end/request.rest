@@ -32,7 +32,7 @@ POST http://localhost:3003/task/create
 Content-Type: application/json 
 
 {
-    "tilte": "Gerenciamento de tarefas10",
+    "title": "Gerenciamento de tarefas10",
     "description": "Atualizar o Trello com as novas demandas compartilhadas hoje10",
     "deadline": "2023-09-06" ,
     "status": "pendente"
